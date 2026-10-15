@@ -1,3 +1,6 @@
+import { registerLearnerRoutes } from './src/server/learnerRoutes.js';
+import { registerManagerRoutes } from './src/server/managerRoutes.js';
+import { registerAdminRoutes } from './src/server/adminRoutes.js';
 import express from 'express';
 import { GoogleGenAI, GenerateVideosOperation } from '@google/genai';
 import dotenv from 'dotenv';
@@ -12,6 +15,21 @@ import {
   setRuntimeImageProvider,
   ImageProvider,
 } from './src/services/imageGenerationService';
+import { checkDatabaseHealth } from './src/db/pool';
+import {
+  authenticateRequest,
+  optionalAuth,
+  requireRole,
+  resolveUserFromIdentity,
+} from './src/server/authMiddleware.js';
+import { verifyFirebaseIdToken } from './src/server/firebaseAdmin.js';
+import crypto from 'crypto';
+import { contentRepo } from './src/db/repositories/contentRepo.js';
+import { auditRepo } from './src/db/repositories/auditRepo.js';
+import { validateSourceFidelity } from './src/utils/sourceValidator.js';
+import { generateDomainNeutralLesson } from './src/utils/domainNeutralGenerator.js';
+import { ExtractedDocument, ExtractionDiagnostics } from './src/utils/documentExtractor.js';
+import { LearningAssetStatus } from './src/db/types.js';
 
 dotenv.config();
 
@@ -131,20 +149,648 @@ function getGeminiClient(req?: express.Request): GoogleGenAI | null {
 const MODEL_PRO = process.env.GEMINI_PRO_MODEL || 'gemini-3.1-pro-preview';
 const MODEL_FAST = process.env.GEMINI_FAST_MODEL || 'gemini-3.8-flash';
 
-// Health check endpoint to diagnose deployment status and API key detection
+// Health check endpoint (sanitized to minimize exposed information)
 app.get('/api/health', (_req, res) => {
-  const key = getApiKey();
   res.json({
     status: 'ok',
-    hasGeminiKey: Boolean(key && key.length > 5),
-    keyPrefix: key ? `${key.slice(0, 4)}...${key.slice(-4)}` : null,
     nodeEnv: process.env.NODE_ENV || 'development',
     time: new Date().toISOString(),
   });
 });
 
-// Temporary endpoint to list available models for the provided API key
-app.get('/api/models', async (req, res) => {
+// Non-blocking database health diagnostic endpoint (sanitized)
+app.get('/api/db/health', async (_req, res) => {
+  try {
+    const health = await checkDatabaseHealth();
+    res.json({
+      status: health.connected ? 'ok' : 'degraded',
+      connected: health.connected,
+      configured: health.configured,
+      latencyMs: health.latencyMs,
+    });
+  } catch (_err: any) {
+    res.status(503).json({
+      status: 'unhealthy',
+      connected: false,
+    });
+  }
+});
+
+// ==========================================
+// LMS AUTHENTICATION & IDENTITY ENDPOINTS
+// ==========================================
+
+// Establish session from verified Firebase ID token
+app.post('/api/auth/session', async (req, res) => {
+  try {
+    const authHeader = req.headers['authorization'];
+    const bodyToken = req.body?.idToken;
+    const token = (authHeader?.replace(/^Bearer\s+/i, '') || bodyToken || '').trim();
+
+    if (!token) {
+      return res.status(401).json({ error: 'UNAUTHORIZED', message: 'No ID token provided.' });
+    }
+
+    const identity = await verifyFirebaseIdToken(token);
+    const user = await resolveUserFromIdentity(identity);
+
+    return res.json({
+      success: true,
+      user: {
+        id: user.id,
+        email: user.email,
+        fullName: user.full_name,
+        role: user.role,
+        jobTitle: user.job_title,
+        badgeId: user.badge_id,
+        organizationId: user.organization_id,
+      },
+    });
+  } catch (err: any) {
+    const msg = err?.message || 'Authentication failed';
+    const status = msg.includes('ACCOUNT_DEACTIVATED') || msg.includes('USER_NOT_PROVISIONED') ? 403 : 401;
+    return res.status(status).json({
+      error: status === 403 ? 'FORBIDDEN' : 'UNAUTHORIZED',
+      message: msg,
+    });
+  }
+});
+
+// Get current verified session
+app.get('/api/auth/me', authenticateRequest, (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ error: 'UNAUTHORIZED', message: 'Not authenticated.' });
+  }
+  return res.json({
+    success: true,
+    user: {
+      id: req.user.id,
+      email: req.user.email,
+      fullName: req.user.full_name,
+      role: req.user.role,
+      jobTitle: req.user.job_title,
+      badgeId: req.user.badge_id,
+      organizationId: req.user.organization_id,
+    },
+  });
+});
+
+// Session logout
+app.post('/api/auth/logout', (_req, res) => {
+  return res.json({ success: true, message: 'Logged out successfully.' });
+});
+
+// =========================================================================
+// LMS PHASE 3: ADMIN CONTENT MANAGEMENT API ROUTES
+// =========================================================================
+
+function computeServerTextDiagnostics(text: string, wordCount: number, pageCount: number): ExtractionDiagnostics {
+  const totalChars = text.length;
+  const readableChars = (text.match(/[\p{L}\p{N}\s\p{P}]/gu) || []).length;
+  const replacementChars = (text.match(/\uFFFD/g) || []).length;
+  const controlChars = (text.match(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g) || []).length;
+  return {
+    totalChars,
+    readableChars,
+    controlChars,
+    replacementChars,
+    wordCount,
+    pageCount,
+  };
+}
+
+// 1. List Organization's Source Documents with Versions & Asset States
+app.get('/api/admin/content/documents', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const documents = await contentRepo.listSourceDocuments(orgId);
+    return res.json({ success: true, documents });
+  } catch (err: any) {
+    console.error('[Admin Content] Error listing source documents:', err?.message);
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to list source documents.' });
+  }
+});
+
+// 2. Get Single Source Document with Complete Revision History & Assets
+app.get('/api/admin/content/documents/:id', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const docId = req.params.id;
+    const document = await contentRepo.getSourceDocument(orgId, docId);
+    if (!document) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Source document not found in your organization.' });
+    }
+
+    const versions = await contentRepo.listSourceVersions(orgId, docId);
+    const assets = await contentRepo.listLearningAssets(orgId, { source_document_id: docId });
+
+    return res.json({
+      success: true,
+      document,
+      versions,
+      assets,
+    });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to fetch source document.' });
+  }
+});
+
+// 3. Update Source Document Metadata (Title, Category, Doc Code)
+app.put('/api/admin/content/documents/:id', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const docId = req.params.id;
+    const { title, category, docCode } = req.body;
+
+    const updated = await contentRepo.updateSourceDocument(orgId, docId, {
+      title,
+      category,
+      doc_code: docCode,
+    });
+
+    if (!updated) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Source document not found in your organization.' });
+    }
+
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'CONTENT_DOCUMENT_UPDATED',
+      target_type: 'source_document',
+      target_id: updated.id,
+      details: {
+        title: updated.title,
+        category: updated.category,
+        doc_code: updated.doc_code,
+      },
+    });
+
+    return res.json({ success: true, document: updated });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to update source document.' });
+  }
+});
+
+// 4. Ingest SOP Document through DEAN Pipeline -> Create Source Document, Version, and Draft Asset
+app.post('/api/admin/content/ingest', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const { filename, rawText, title, category, docCode, roleTarget } = req.body;
+
+    if (!rawText || typeof rawText !== 'string' || !rawText.trim()) {
+      return res.status(400).json({ error: 'BAD_REQUEST', message: 'Missing rawText SOP content in request body.' });
+    }
+
+    const cleanFilename = (filename || 'SOP_Document.txt').trim();
+    const cleanText = rawText.trim();
+    const wordCount = cleanText.split(/\s+/).filter(Boolean).length;
+    const pageCount = Math.max(1, Math.ceil(wordCount / 220));
+    const fileHash = crypto.createHash('sha256').update(cleanText).digest('hex');
+    const diagnostics = computeServerTextDiagnostics(cleanText, wordCount, pageCount);
+
+    const extractedDoc: ExtractedDocument = {
+      filename: cleanFilename,
+      rawText: cleanText,
+      wordCount,
+      pageCount,
+      fileHash,
+      confirmationText: 'Operational SOP verified.',
+      mimeType: 'text/plain',
+      extractedAt: new Date().toISOString(),
+      diagnostics,
+    };
+
+    // 1. Authoritative DEAN Source Fidelity Validation
+    const validation = validateSourceFidelity(extractedDoc);
+    if (!validation.isValid) {
+      return res.status(422).json({
+        success: false,
+        error: 'VALIDATION_FAILED',
+        errorCategory: validation.errorCategory,
+        errorReason: validation.errorReason,
+        domainName: validation.domainName,
+        diagnostics,
+      });
+    }
+
+    // 2. Create or find logical Source Document
+    const baseCode = cleanFilename.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9]/g, '-').toUpperCase();
+    const finalDocCode = (docCode || `SOP-${baseCode.slice(0, 24)}`).trim();
+    const doc = await contentRepo.createOrFindSourceDocument({
+      organization_id: orgId,
+      doc_code: finalDocCode,
+      title: (title || cleanFilename.replace(/\.[^/.]+$/, '')).trim(),
+      category: (category || 'General').trim(),
+      created_by: req.user!.id,
+    });
+
+    // 3. Create new Source Version
+    const versionResult = await contentRepo.createSourceVersion({
+      organization_id: orgId,
+      source_document_id: doc.id,
+      content_hash: fileHash,
+      original_filename: cleanFilename,
+      mime_type: 'text/plain',
+      extracted_text: cleanText,
+      word_count: wordCount,
+      page_count: pageCount,
+      change_summary: 'Ingested via Guru Coach Admin Content Management',
+      diagnostics: {
+        validation,
+        uploadedAt: new Date().toISOString(),
+        uploadedBy: req.user!.email,
+      },
+      created_by: req.user!.id,
+    });
+
+    // 4. Generate Knowledge Model, Operational Blueprint, Training Plan via DEAN
+    const gen = generateDomainNeutralLesson(extractedDoc);
+
+    // 5. Create Draft Learning Asset
+    const asset = await contentRepo.createLearningAsset({
+      organization_id: orgId,
+      source_version_id: versionResult.version.id,
+      title: gen.lesson.title || doc.title,
+      subtitle: gen.lesson.subtitle || undefined,
+      role_target: (roleTarget || gen.lesson.knowledgeModel?.identity?.role || 'Frontline Specialist').trim(),
+      operational_blueprint: gen.lesson.operationalBlueprint || gen.blueprint || {},
+      canonical_task_model: gen.lesson.knowledgeModel || {},
+      know_it_plan: gen.lesson.trainingPlan || {},
+      video_demonstration_plan: gen.lesson.videoPlan || null,
+      simulator_steps: gen.stepObjects || [],
+      generation_metadata: {
+        generator: 'DEAN',
+        domain: validation.domainName,
+        sourceHash: fileHash,
+        ingestedAt: new Date().toISOString(),
+        prerequisitesCount: gen.lesson.knowledgeModel?.prerequisites?.length || 0,
+        criticalControlsCount: gen.lesson.knowledgeModel?.criticalControls?.length || 0,
+      },
+      status: 'draft',
+      approved_by: null,
+    });
+
+    // 6. Record Audit Event
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'CONTENT_INGESTED',
+      target_type: 'learning_asset',
+      target_id: asset.id,
+      details: {
+        source_document_id: doc.id,
+        source_version_id: versionResult.version.id,
+        version_number: versionResult.version.version_number,
+        is_duplicate: versionResult.isDuplicate,
+        asset_title: asset.title,
+        status: asset.status,
+      },
+    });
+
+    return res.json({
+      success: true,
+      document: doc,
+      version: versionResult.version,
+      asset,
+      isDuplicate: versionResult.isDuplicate,
+      validation,
+    });
+  } catch (err: any) {
+    console.error('[Admin Ingest Error]:', err);
+    return res.status(500).json({ error: 'INGEST_FAILED', message: err?.message || 'Failed to ingest SOP.' });
+  }
+});
+
+// 5. Ingest New Revision/Version for an Existing Source Document
+app.post('/api/admin/content/documents/:id/new-version', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const docId = req.params.id;
+    const { filename, rawText, changeSummary, roleTarget } = req.body;
+
+    const doc = await contentRepo.getSourceDocument(orgId, docId);
+    if (!doc) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Source document not found in your organization.' });
+    }
+
+    if (!rawText || typeof rawText !== 'string' || !rawText.trim()) {
+      return res.status(400).json({ error: 'BAD_REQUEST', message: 'Missing rawText SOP content in request body.' });
+    }
+
+    const cleanFilename = (filename || `${doc.title}_revised.txt`).trim();
+    const cleanText = rawText.trim();
+    const wordCount = cleanText.split(/\s+/).filter(Boolean).length;
+    const pageCount = Math.max(1, Math.ceil(wordCount / 220));
+    const fileHash = crypto.createHash('sha256').update(cleanText).digest('hex');
+    const diagnostics = computeServerTextDiagnostics(cleanText, wordCount, pageCount);
+
+    const extractedDoc: ExtractedDocument = {
+      filename: cleanFilename,
+      rawText: cleanText,
+      wordCount,
+      pageCount,
+      fileHash,
+      confirmationText: 'Operational SOP verified.',
+      mimeType: 'text/plain',
+      extractedAt: new Date().toISOString(),
+      diagnostics,
+    };
+
+    const validation = validateSourceFidelity(extractedDoc);
+    if (!validation.isValid) {
+      return res.status(422).json({
+        success: false,
+        error: 'VALIDATION_FAILED',
+        errorCategory: validation.errorCategory,
+        errorReason: validation.errorReason,
+      });
+    }
+
+    const versionResult = await contentRepo.createSourceVersion({
+      organization_id: orgId,
+      source_document_id: doc.id,
+      content_hash: fileHash,
+      original_filename: cleanFilename,
+      mime_type: 'text/plain',
+      extracted_text: cleanText,
+      word_count: wordCount,
+      page_count: pageCount,
+      change_summary: changeSummary?.trim() || `New revision ${new Date().toLocaleDateString()}`,
+      diagnostics: {
+        validation,
+        uploadedAt: new Date().toISOString(),
+        uploadedBy: req.user!.email,
+      },
+      created_by: req.user!.id,
+    });
+
+    const gen = generateDomainNeutralLesson(extractedDoc);
+
+    const asset = await contentRepo.createLearningAsset({
+      organization_id: orgId,
+      source_version_id: versionResult.version.id,
+      title: gen.lesson.title || doc.title,
+      subtitle: gen.lesson.subtitle || undefined,
+      role_target: (roleTarget || gen.lesson.knowledgeModel?.identity?.role || 'Frontline Specialist').trim(),
+      operational_blueprint: gen.blueprint || {},
+      canonical_task_model: gen.lesson.knowledgeModel || {},
+      know_it_plan: gen.lesson.trainingPlan || {},
+      video_demonstration_plan: gen.lesson.videoPlan || null,
+      simulator_steps: gen.stepObjects || [],
+      generation_metadata: {
+        generator: 'DEAN',
+        domain: validation.domainName,
+        sourceHash: fileHash,
+        versionLabel: versionResult.version.version_label,
+      },
+      status: 'draft',
+      approved_by: null,
+    });
+
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'SOURCE_VERSION_UPDATED',
+      target_type: 'source_version',
+      target_id: versionResult.version.id,
+      details: {
+        source_document_id: doc.id,
+        version_number: versionResult.version.version_number,
+        version_label: versionResult.version.version_label,
+        asset_id: asset.id,
+      },
+    });
+
+    return res.json({
+      success: true,
+      document: doc,
+      version: versionResult.version,
+      asset,
+      isDuplicate: versionResult.isDuplicate,
+    });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'REVISION_FAILED', message: err?.message || 'Failed to create new version.' });
+  }
+});
+
+// 6. List Learning Assets with Status Filtering
+app.get('/api/admin/content/assets', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const { status, source_document_id, source_version_id } = req.query;
+
+    const assets = await contentRepo.listLearningAssets(orgId, {
+      status: typeof status === 'string' ? status : undefined,
+      source_document_id: typeof source_document_id === 'string' ? source_document_id : undefined,
+      source_version_id: typeof source_version_id === 'string' ? source_version_id : undefined,
+    });
+
+    return res.json({ success: true, assets });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to list learning assets.' });
+  }
+});
+
+// 7. Get Single Learning Asset with Provenance & Complete Blueprint
+app.get('/api/admin/content/assets/:id', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const assetId = req.params.id;
+
+    const asset = await contentRepo.getLearningAsset(orgId, assetId);
+    if (!asset) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Learning asset not found in your organization.' });
+    }
+
+    const version = await contentRepo.getSourceVersion(orgId, asset.source_version_id);
+    const document = version ? await contentRepo.getSourceDocument(orgId, version.source_document_id) : null;
+
+    return res.json({
+      success: true,
+      asset,
+      version,
+      document,
+    });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to fetch learning asset.' });
+  }
+});
+
+// 8. Update Learning Asset Metadata (Title, Subtitle, Role Target)
+app.put('/api/admin/content/assets/:id/metadata', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const assetId = req.params.id;
+    const { title, subtitle, roleTarget } = req.body;
+
+    const updated = await contentRepo.updateLearningAsset(orgId, assetId, {
+      title,
+      subtitle,
+      role_target: roleTarget,
+    });
+
+    if (!updated) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Learning asset not found in your organization.' });
+    }
+
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'CONTENT_METADATA_UPDATED',
+      target_type: 'learning_asset',
+      target_id: updated.id,
+      details: {
+        title: updated.title,
+        subtitle: updated.subtitle,
+        role_target: updated.role_target,
+      },
+    });
+
+    return res.json({ success: true, asset: updated });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to update metadata.' });
+  }
+});
+
+// 9. Update Learning Asset Blueprint / Training Plan
+app.put('/api/admin/content/assets/:id/blueprint', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const assetId = req.params.id;
+    const { operational_blueprint, canonical_task_model, know_it_plan, simulator_steps } = req.body;
+
+    const updated = await contentRepo.updateLearningAsset(orgId, assetId, {
+      operational_blueprint,
+      canonical_task_model,
+      know_it_plan,
+      simulator_steps,
+    });
+
+    if (!updated) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Learning asset not found in your organization.' });
+    }
+
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'CONTENT_BLUEPRINT_UPDATED',
+      target_type: 'learning_asset',
+      target_id: updated.id,
+      details: {
+        steps_count: simulator_steps?.length || 0,
+        blueprint_updated: Boolean(operational_blueprint),
+      },
+    });
+
+    return res.json({ success: true, asset: updated });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to update blueprint.' });
+  }
+});
+
+// 10. Approve & Publish Learning Asset (Permit publication only after validation & admin signoff)
+app.post(['/api/admin/content/assets/:id/publish', '/api/admin/content/assets/:id/approve'], authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const assetId = req.params.id;
+
+    const asset = await contentRepo.getLearningAsset(orgId, assetId);
+    if (!asset) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Learning asset not found in your organization.' });
+    }
+
+    // Verify asset is not failed or archived
+    if (asset.status === 'failed') {
+      return res.status(422).json({
+        error: 'CANNOT_PUBLISH_FAILED_CONTENT',
+        message: 'Cannot publish content that failed validation or extraction.',
+      });
+    }
+
+    // Mark as approved & published
+    const updated = await contentRepo.updateLearningAssetStatus(orgId, assetId, 'approved', req.user!.id);
+    if (!updated) {
+      return res.status(500).json({ error: 'UPDATE_FAILED', message: 'Failed to update asset status.' });
+    }
+
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'CONTENT_APPROVED_PUBLISHED',
+      target_type: 'learning_asset',
+      target_id: updated.id,
+      details: {
+        previous_status: asset.status,
+        new_status: updated.status,
+        approved_by: req.user!.id,
+        approved_at: updated.approved_at,
+        title: updated.title,
+      },
+    });
+
+    return res.json({
+      success: true,
+      message: 'Learning asset approved and published successfully.',
+      asset: updated,
+    });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to approve asset.' });
+  }
+});
+
+// 11. Archive Learning Asset
+app.post('/api/admin/content/assets/:id/archive', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const assetId = req.params.id;
+
+    const asset = await contentRepo.getLearningAsset(orgId, assetId);
+    if (!asset) {
+      return res.status(404).json({ error: 'NOT_FOUND', message: 'Learning asset not found in your organization.' });
+    }
+
+    const updated = await contentRepo.updateLearningAssetStatus(orgId, assetId, 'archived');
+
+    await auditRepo.recordEvent({
+      organization_id: orgId,
+      user_id: req.user!.id,
+      action: 'CONTENT_ARCHIVED',
+      target_type: 'learning_asset',
+      target_id: assetId,
+      details: {
+        title: asset.title,
+      },
+    });
+
+    return res.json({
+      success: true,
+      message: 'Learning asset archived.',
+      asset: updated,
+    });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to archive asset.' });
+  }
+});
+
+// Phase 4: Manager Team & Assignment Routes
+registerManagerRoutes(app);
+registerAdminRoutes(app);
+registerLearnerRoutes(app);
+
+// 12. List Organization Content Audit Trail
+app.get('/api/admin/content/audit-trail', authenticateRequest, requireRole('admin'), async (req, res) => {
+  try {
+    const orgId = req.user!.organization_id;
+    const limit = Number(req.query.limit) || 50;
+    const events = await auditRepo.listEvents(orgId, limit);
+    return res.json({ success: true, events });
+  } catch (err: any) {
+    return res.status(500).json({ error: 'INTERNAL_ERROR', message: err?.message || 'Failed to fetch audit trail.' });
+  }
+});
+
+// Internal endpoint to list available models (Restricted to Admin)
+app.get('/api/models', authenticateRequest, requireRole('admin'), async (req, res) => {
   const ai = getGeminiClient(req);
   if (!ai) return res.json({ error: 'no key' });
   const out: string[] = [];
@@ -159,7 +805,7 @@ app.get('/api/models', async (req, res) => {
 });
 
 // API Route: Extract Text from PDF/Image using Gemini Server Multimodal Engine
-app.post('/api/pdf/extract', async (req, res) => {
+app.post('/api/pdf/extract', authenticateRequest, requireRole(['admin', 'manager']), async (req, res) => {
   try {
     const { fileBase64, mimeType = 'application/pdf', filename = 'uploaded_document.pdf' } = req.body;
 
@@ -277,7 +923,7 @@ Do NOT summarize. Return JSON:
 });
 
 // API Route: Generate Blueprint & Lesson from SOP Source Document
-app.post('/api/gemini/generate-blueprint', async (req, res) => {
+app.post('/api/gemini/generate-blueprint', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { rawText, fileBase64, mimeType, filename, fileHash, pageCount, wordCount } = req.body;
 
@@ -538,7 +1184,7 @@ The number of operational_steps must emerge naturally from the SOP's actual oper
 });
 
 // Generic /api/coach endpoint implementing developer guide specification
-app.post('/api/coach', async (req, res) => {
+app.post('/api/coach', authenticateRequest, requireRole(['admin', 'manager', 'learner']), async (req, res) => {
   const { prompt, systemInstruction, fileBase64, mimeType = 'application/pdf', maxOutputTokens = 4000, temperature = 0.3 } = req.body;
 
   if (!prompt) {
@@ -622,7 +1268,7 @@ app.post('/api/coach', async (req, res) => {
 });
 
 // API Route: Generate Recommended Instruct Options for an SOP
-app.post('/api/sop/instruct-options', async (req, res) => {
+app.post('/api/sop/instruct-options', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { filename = 'SOP Document', rawText = '', wordCount = 100, pageCount = 1 } = req.body;
     const aiClient = getGeminiClient(req);
@@ -727,7 +1373,7 @@ Return JSON:
 // ==========================================================
 
 // Stage A/B: Prompt A — Extract SOP & Generate Extraction Report
-app.post('/api/sop/extract-report', async (req, res) => {
+app.post('/api/sop/extract-report', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { filename, rawText, wordCount, pageCount, fileHash, fileBase64, mimeType } = req.body;
     const aiClient = getGeminiClient(req);
@@ -843,7 +1489,7 @@ Return JSON conforming strictly to:
 });
 
 // Stage C: Prompt B — Adaptive Clarification Chat
-app.post('/api/sop/clarification-chat', async (req, res) => {
+app.post('/api/sop/clarification-chat', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { session, latestAnswer } = req.body;
     const aiClient = getGeminiClient(req);
@@ -877,7 +1523,7 @@ Return the next question, its reason, supporting references, answer options wher
 });
 
 // Stage D: Prompt C — Learning Blueprint Generation
-app.post('/api/sop/generate-blueprint', async (req, res) => {
+app.post('/api/sop/generate-blueprint', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { session, filename, rawText, extractionReport, supplementaryInstructions } = req.body;
     const aiClient = getGeminiClient(req);
@@ -910,7 +1556,7 @@ Do not add unsupported procedural details. Do not omit critical controls for the
 });
 
 // Stage Transition & Approval Enforcement
-app.post('/api/sop/approve-and-generate', async (req, res) => {
+app.post('/api/sop/approve-and-generate', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { session, approvedBy = 'Operations Reviewer' } = req.body;
 
@@ -951,7 +1597,7 @@ app.post('/api/sop/approve-and-generate', async (req, res) => {
 
 
 // 1. Start on-demand video generation
-app.post('/api/generate-video', async (req, res) => {
+app.post('/api/generate-video', authenticateRequest, requireRole('admin'), async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   try {
     const { prompt, aspectRatio = '16:9', resolution = '720p' } = req.body || {};
@@ -1035,7 +1681,7 @@ app.post('/api/generate-video', async (req, res) => {
 });
 
 // 2. Poll video generation status
-app.post('/api/video-status', async (req, res) => {
+app.post('/api/video-status', authenticateRequest, requireRole('admin'), async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   try {
     const { operationName } = req.body || {};
@@ -1070,7 +1716,7 @@ app.post('/api/video-status', async (req, res) => {
 });
 
 // 3. Download / stream completed MP4 video and persist to server storage
-app.post('/api/video-download', async (req, res) => {
+app.post('/api/video-download', authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const { operationName, lessonId, clipIndex = 1 } = req.body;
     if (!operationName) {
@@ -1124,9 +1770,19 @@ app.post('/api/video-download', async (req, res) => {
 });
 
 // 4. Stream saved video from server storage (supports full range-requests / scrubbing)
-app.get('/api/videos/stream/:lessonId/:clipIndex', (req, res) => {
+app.get('/api/videos/stream/:lessonId/:clipIndex', optionalAuth, (req, res) => {
   try {
     const { lessonId, clipIndex } = req.params;
+
+    // Public demo whitelist: sample/demo lessons can be accessed in unauthenticated demo mode
+    const isPublicDemoLesson = /^(demo|sample|retail|aviation|ret-001)/i.test(lessonId);
+    if (!isPublicDemoLesson && !req.user) {
+      return res.status(401).json({
+        error: 'UNAUTHORIZED',
+        message: 'Authentication required to stream proprietary tenant video assets.',
+      });
+    }
+
     const filePath = getSafeVideoPath(lessonId, Number(clipIndex) || 1);
 
     if (!fs.existsSync(filePath)) {
@@ -1137,7 +1793,7 @@ app.get('/api/videos/stream/:lessonId/:clipIndex', (req, res) => {
     return res.sendFile(filePath, {
       headers: {
         'Content-Type': 'video/mp4',
-        'Cache-Control': 'public, max-age=86400',
+        'Cache-Control': isPublicDemoLesson ? 'public, max-age=86400' : 'private, no-cache',
       },
     });
   } catch (error: any) {
@@ -1147,7 +1803,7 @@ app.get('/api/videos/stream/:lessonId/:clipIndex', (req, res) => {
 });
 
 // 5. Check which clips are saved on the server for a lesson
-app.get('/api/videos/check/:lessonId', (req, res) => {
+app.get('/api/videos/check/:lessonId', authenticateRequest, (req, res) => {
   try {
     const { lessonId } = req.params;
     const safeId = lessonId.replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -1171,7 +1827,7 @@ app.get('/api/videos/check/:lessonId', (req, res) => {
 });
 
 // 6. Delete saved videos for a lesson (e.g. when regenerating)
-app.delete('/api/videos/:lessonId', (req, res) => {
+app.delete('/api/videos/:lessonId', authenticateRequest, requireRole('admin'), (req, res) => {
   try {
     const { lessonId } = req.params;
     const safeId = lessonId.replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -1194,7 +1850,7 @@ app.delete('/api/videos/:lessonId', (req, res) => {
 // ==========================================
 
 // Get configuration, active engine, and status
-app.get('/api/image-generation/config', (_req, res) => {
+app.get('/api/image-generation/config', authenticateRequest, (_req, res) => {
   try {
     const config = getImageGenerationConfig();
     return res.json({ success: true, config });
@@ -1204,7 +1860,7 @@ app.get('/api/image-generation/config', (_req, res) => {
 });
 
 // Toggle provider at runtime ('flux' | 'imagen' | 'auto')
-app.post('/api/image-generation/toggle-provider', (req, res) => {
+app.post('/api/image-generation/toggle-provider', authenticateRequest, requireRole('admin'), (req, res) => {
   try {
     const { provider } = req.body;
     if (provider === 'flux' || provider === 'imagen') {
@@ -1225,7 +1881,7 @@ app.post('/api/image-generation/toggle-provider', (req, res) => {
 });
 
 // Generate image via active provider (FLUX.1 Schnell or Imagen)
-app.post(['/api/image-generation/generate', '/api/generate-image'], async (req, res) => {
+app.post(['/api/image-generation/generate', '/api/generate-image'], authenticateRequest, requireRole('admin'), async (req, res) => {
   try {
     const {
       prompt,

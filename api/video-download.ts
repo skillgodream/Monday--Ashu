@@ -1,11 +1,11 @@
 import { GoogleGenAI, GenerateVideosOperation } from '@google/genai';
 import fs from 'fs';
 import path from 'path';
+import { authenticateServerless } from '../src/server/serverlessAuth.js';
 
 function getApiKey(req?: any): string | undefined {
   const headerKey = req ? (
-    (typeof req.headers?.['x-gemini-api-key'] === 'string' ? req.headers['x-gemini-api-key'] : '') ||
-    (typeof req.headers?.['authorization'] === 'string' ? req.headers['authorization'].replace(/^Bearer\s+/i, '') : '')
+    (typeof req.headers?.['x-gemini-api-key'] === 'string' ? req.headers['x-gemini-api-key'] : '')
   ).trim() : '';
 
   const rawKey = (
@@ -34,6 +34,9 @@ export default async function handler(req: any, res: any) {
   if (method !== 'POST') {
     return res.status(405).json({ success: false, error: 'Method Not Allowed' });
   }
+
+  const auth = await authenticateServerless(req, res, { allowedRoles: ['admin'] });
+  if (!auth.success) return;
 
   const apiKey = getApiKey(req);
   if (!apiKey) {

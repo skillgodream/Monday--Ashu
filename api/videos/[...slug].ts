@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { authenticateServerless } from '../../src/server/serverlessAuth.js';
 
 const videosDir = path.resolve(process.cwd(), 'uploads', 'videos');
 
@@ -23,6 +24,8 @@ export default async function handler(req: any, res: any) {
 
   // 1. CHECK ENDPOINT: /api/videos/check/:lessonId
   if (segments[0] === 'check' || req.url?.includes('/check')) {
+    const auth = await authenticateServerless(req, res);
+    if (!auth.success) return;
     const lessonId = segments[1] || req.query.lessonId;
     if (!lessonId) {
       return res.status(400).json({ success: false, error: 'lessonId is required' });
@@ -54,6 +57,17 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ success: false, error: 'lessonId is required' });
     }
 
+    const isPublicDemoLesson = /^(demo|sample|retail|aviation|ret-001)/i.test(lessonId);
+    const auth = await authenticateServerless(req, res, { allowDemo: true });
+    if (!auth.success) return;
+
+    if (!isPublicDemoLesson && !auth.user) {
+      return res.status(401).json({
+        error: 'UNAUTHORIZED',
+        message: 'Authentication required to stream proprietary tenant video assets.',
+      });
+    }
+
     const filePath = getSafeVideoPath(lessonId, clipIndex);
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ success: false, error: 'Video file not found on server' });
@@ -75,6 +89,7 @@ export default async function handler(req: any, res: any) {
         'Accept-Ranges': 'bytes',
         'Content-Length': chunksize,
         'Content-Type': 'video/mp4',
+        'Cache-Control': isPublicDemoLesson ? 'public, max-age=86400' : 'private, no-cache',
       });
       return file.pipe(res);
     } else {
@@ -82,6 +97,7 @@ export default async function handler(req: any, res: any) {
         'Content-Length': fileSize,
         'Content-Type': 'video/mp4',
         'Accept-Ranges': 'bytes',
+        'Cache-Control': isPublicDemoLesson ? 'public, max-age=86400' : 'private, no-cache',
       });
       return fs.createReadStream(filePath).pipe(res);
     }
@@ -89,6 +105,9 @@ export default async function handler(req: any, res: any) {
 
   // 3. DELETE ENDPOINT: /api/videos/:lessonId
   if (req.method === 'DELETE') {
+    const auth = await authenticateServerless(req, res, { allowedRoles: ['admin'] });
+    if (!auth.success) return;
+
     const lessonId = segments[0] || req.query.lessonId;
     if (!lessonId) {
       return res.status(400).json({ success: false, error: 'lessonId is required' });

@@ -19,6 +19,9 @@ import LibraryView from './components/LibraryView';
 import ProgressView from './components/ProgressView';
 import ProfileView from './components/ProfileView';
 import PilotDashboardView from './components/PilotDashboardView';
+import { AdminContentStudio } from './components/AdminContentStudio';
+import { ManagerTeamStudio } from './components/ManagerTeamStudio';
+import { LearnerHomeView } from './components/LearnerHomeView';
 import BentoArchitectureShowcase from './components/BentoArchitectureShowcase';
 import ValidationErrorModal from './components/ValidationErrorModal';
 import { MeetGurujiScreen } from './screens/MeetGurujiScreen';
@@ -40,8 +43,12 @@ import { getApiHeaders } from './utils/apiHelper';
 import { ShowMeVideoModal } from './components/ShowMeVideoModal';
 import { SopGenerationModal } from './components/SopGenerationModal';
 import { AnalyzingModal } from './components/AnalyzingModal';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { HeaderUserWidget } from './components/HeaderUserWidget';
+import { AuthModal } from './components/AuthModal';
 
-export default function App() {
+function AppContent() {
+  const { role } = useAuth();
   const [isDesignCheck, setIsDesignCheck] = useState<boolean>(
     window.location.hash === '#design-check' ||
     window.location.pathname === '/design-check'
@@ -388,10 +395,35 @@ export default function App() {
         <div className="absolute bottom-20 -left-20 w-[450px] h-[450px] rounded-full bg-slate-500/[0.03] blur-[130px]" />
       </div>
 
+      {/* LMS Enterprise Navigation & Persona Status Header */}
+      <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-black/80 border-b border-white/10 px-4 py-2.5">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-sm tracking-tight text-white">Guru Coach</span>
+            <span className="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">LMS</span>
+          </div>
+          <HeaderUserWidget />
+        </div>
+      </header>
+
       {/* Main Tab Views & Bottom Navigation (only rendered when NOT in an active lesson, deck, or simulation) */}
       {!selectedLesson && !activeSimulator && !isIntroDeckOpen && (
         <>
-          {activeTab === 'home' && (
+          {activeTab === 'home' && (role === 'learner' ? (
+            <main className="flex-1 flex flex-col max-w-2xl mx-auto w-full animate-in fade-in duration-200">
+              <LearnerHomeView
+                onSelectSop={(lessonId, title, mode) => {
+                  handleSelectSop(lessonId, title);
+                  if (mode === 'show_me') setIsVideoDemoOpen(true);
+                  else if (mode === 'guide_me') handleStartSimulation(1);
+                  else if (mode === 'test_me') handleStartSimulation(2);
+                  else setIsIntroDeckOpen(true);
+                }}
+                onExploreLibrary={() => setActiveTab('library')}
+                onOpenTrainerModal={() => setIsTrainerModalOpen(true)}
+              />
+            </main>
+          ) : (
             <main className="flex-1 flex flex-col max-w-lg mx-auto w-full animate-in fade-in duration-200">
               <MeetGurujiScreen
                 onContinue={() => {
@@ -506,7 +538,7 @@ export default function App() {
                 </div>
               )}
             </main>
-          )}
+          ))}
 
           {activeTab === 'library' && (
             <main className="flex-1 flex flex-col max-w-lg mx-auto w-full animate-in fade-in duration-200">
@@ -539,6 +571,18 @@ export default function App() {
                   handleSelectSop(learner.assignedSopId, learner.assignedSopTitle);
                 }}
               />
+            </main>
+          )}
+
+          {activeTab === 'manager' && (
+            <main className="flex-1 flex flex-col max-w-6xl mx-auto w-full animate-in fade-in duration-200 pb-24">
+              <ManagerTeamStudio />
+            </main>
+          )}
+
+          {activeTab === 'admin' && (
+            <main className="flex-1 flex flex-col max-w-6xl mx-auto w-full animate-in fade-in duration-200 pb-24">
+              <AdminContentStudio />
             </main>
           )}
 
@@ -760,6 +804,17 @@ export default function App() {
            </button>
         </div>
       )}
+
+      {/* Enterprise Authentication & Persona Modal */}
+      <AuthModal />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
