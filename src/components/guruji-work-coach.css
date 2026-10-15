@@ -1,0 +1,813 @@
+/* WORLD-CLASS GURUJI WORK COACH VISUAL SYSTEM — Premium Monochrome / Sleek Dark Theme */
+:root {
+  --lux-bg: #0B0C0E;
+  --lux-surface: #121620;
+  --lux-card: #181E2A;
+  --lux-ink: #F3F4F6;
+  --lux-muted: #9CA3AF;
+  --lux-line: rgba(255, 255, 255, 0.1);
+  --lux-blue: #3B82F6;
+  --lux-green: #10B981;
+  --lux-red: #EF4444;
+  --lux-purple: #8B5CF6;
+}
+
+.guruji-coach-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow-y: auto;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: #07090E;
+  color: #F3F4F6;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.guruji-coach-wrapper * {
+  box-sizing: border-box;
+}
+
+.guruji-coach-app {
+  width: min(100vw, 440px);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0D111A 0%, #07090E 100%);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 30px 80px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 500px) {
+  .guruji-coach-wrapper {
+    padding: 16px;
+  }
+  .guruji-coach-app {
+    min-height: 780px;
+    height: 100dvh;
+    max-height: 880px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.screen.work {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex: 1;
+  background: linear-gradient(180deg, #0E121B 0%, #080A0F 100%);
+  color: #F3F4F6;
+}
+
+/* Header */
+.guruji-coach-app .header {
+  height: 64px;
+  padding: 14px 18px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(13, 17, 26, 0.85) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.guruji-coach-app .brand {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+  color: #F3F4F6 !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guruji-coach-app .back-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #E2E8F0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.guruji-coach-app .back-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+}
+
+.guruji-coach-app .cancel-btn {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #F87171;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.guruji-coach-app .cancel-btn:hover {
+  background: rgba(239, 68, 68, 0.22);
+  color: #FCA5A5;
+}
+
+.guruji-coach-app .live {
+  font-size: 9px !important;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #9CA3AF !important;
+  padding: 5px 10px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.08em;
+}
+
+.guruji-coach-app .live i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+/* Progress Bar & Nodes */
+.guruji-coach-app .progress {
+  padding: 8px 18px 12px !important;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.guruji-coach-app .progressLine {
+  height: 6px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 99px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.guruji-coach-app .progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3B82F6, #10B981) !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+  border-radius: 99px;
+  transition: width 0.35s ease-out;
+}
+
+.guruji-coach-app .nodes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -11px;
+}
+
+.guruji-coach-app .node {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #121620 !important;
+  border: 3px solid rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.25s ease;
+}
+
+.guruji-coach-app .node.done {
+  background: #10B981 !important;
+  border-color: #10B981 !important;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.guruji-coach-app .node.active {
+  background: #3B82F6 !important;
+  border-color: #60A5FA !important;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.6) !important;
+  transform: scale(1.15);
+}
+
+/* Task Meta & Phase */
+.guruji-coach-app .task {
+  padding: 14px 16px 0 !important;
+}
+
+.guruji-coach-app .taskMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px !important;
+}
+
+.guruji-coach-app .phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #E2E8F0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.guruji-coach-app .phase .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3B82F6 !important;
+}
+
+.guruji-coach-app .counter {
+  font-size: 11px;
+  color: #9CA3AF !important;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Radiant Hero Task Card */
+.guruji-coach-app .taskCard.heroTask {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 24px !important;
+  background: linear-gradient(145deg, #131B2A 0%, #1A2335 100%) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guruji-coach-app .heroTask .heroInner {
+  position: relative;
+  padding: 18px 20px !important;
+  z-index: 1;
+}
+
+.guruji-coach-app .heroTask .taskTitle {
+  font-size: 22px !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.03em !important;
+  margin: 0;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.guruji-coach-app .heroTask .taskSub {
+  font-size: 11px;
+  color: #9CA3AF !important;
+  margin-top: 3px;
+  font-weight: 500;
+}
+
+.guruji-coach-app .heroTask .priority {
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #60A5FA !important;
+  border: 1px solid rgba(96, 165, 250, 0.3) !important;
+  border-radius: 999px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.guruji-coach-app .heroTask .item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.guruji-coach-app .heroTask .itemIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #FFF;
+}
+
+.guruji-coach-app .heroTask .item b {
+  font-size: 13px;
+  color: #F3F4F6;
+  font-weight: 700;
+}
+
+.guruji-coach-app .heroTask .item span {
+  display: block;
+  font-size: 11px;
+  color: #9CA3AF !important;
+  margin-top: 2px;
+}
+
+.guruji-coach-app .heroTask .target {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.guruji-coach-app .heroTask .targetBox {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+
+.guruji-coach-app .heroTask .targetBox label {
+  display: block;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #6B7280;
+  text-transform: uppercase;
+}
+
+.guruji-coach-app .heroTask .targetBox strong {
+  display: block;
+  font-size: 15px;
+  margin-top: 2px;
+  color: #FFF;
+  font-weight: 700;
+}
+
+.guruji-coach-app .heroTask .qty {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.guruji-coach-app .heroTask .qty strong {
+  color: #34D399 !important;
+}
+
+/* Card States: Correct, Wrong, Coach */
+.guruji-coach-app .taskCard.heroTask.state-correct {
+  background: linear-gradient(145deg, #064E3B 0%, #047857 100%) !important;
+  border-color: rgba(52, 211, 153, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(4, 120, 87, 0.3) !important;
+}
+
+.guruji-coach-app .taskCard.heroTask.state-wrong {
+  background: linear-gradient(145deg, #7F1D1D 0%, #991B1B 100%) !important;
+  border-color: rgba(248, 113, 113, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(153, 27, 27, 0.3) !important;
+}
+
+.guruji-coach-app .taskCard.heroTask.state-coach {
+  background: linear-gradient(145deg, #312E81 0%, #4338CA 100%) !important;
+  border-color: rgba(165, 180, 252, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(67, 56, 202, 0.3) !important;
+}
+
+/* Action Area */
+.guruji-coach-app .action {
+  padding: 16px 16px 20px !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.guruji-coach-app .question {
+  font-size: 18px !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.02em !important;
+  color: #F9FAFB !important;
+  margin: 6px 0 14px !important;
+  font-weight: 700;
+}
+
+/* Choices list */
+.guruji-coach-app .choices {
+  display: grid;
+  gap: 10px !important;
+}
+
+.guruji-coach-app .choice {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  min-height: 56px !important;
+  padding: 14px 16px !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #F3F4F6;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.guruji-coach-app .choice:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-1px);
+}
+
+.guruji-coach-app .choice:active {
+  transform: scale(0.985);
+}
+
+.guruji-coach-app .choice strong {
+  font-size: 14px !important;
+  line-height: 1.3 !important;
+  font-weight: 700;
+  display: block;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  color: #F9FAFB;
+}
+
+.guruji-coach-app .choice small {
+  display: block;
+  font-size: 11px;
+  color: #9CA3AF;
+  margin-top: 3px;
+  font-weight: 500;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.guruji-coach-app .choice.correct {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  border-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+}
+
+.guruji-coach-app .choice.correct strong,
+.guruji-coach-app .choice.correct small {
+  color: #FFFFFF !important;
+}
+
+.guruji-coach-app .choice.wrong {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%) !important;
+  border-color: #EF4444 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3) !important;
+}
+
+.guruji-coach-app .choice.wrong strong,
+.guruji-coach-app .choice.wrong small {
+  color: #FFFFFF !important;
+}
+
+.guruji-coach-app .choice.disabled {
+  opacity: 0.35 !important;
+  pointer-events: none;
+}
+
+.guruji-coach-app .choice .mark {
+  font-size: 18px;
+  font-weight: 900;
+  margin-left: 12px;
+}
+
+/* Guruji Speech Bubble */
+.guruji-coach-app .guru {
+  margin-top: 16px !important;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start !important;
+}
+
+.guruji-coach-app .gMark {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #6366F1, #4F46E5) !important;
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3) !important;
+  color: #FFF;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  font-weight: 800;
+  flex: none;
+}
+
+.guruji-coach-app .gBubble {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #E5E7EB;
+  transition: all 0.25s ease;
+}
+
+.guruji-coach-app .gBubble b {
+  display: inline-block;
+  color: #818CF8;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  margin-right: 6px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.guruji-coach-app .gBubble.bad {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #FCA5A5;
+}
+
+/* Bottom Actions */
+.guruji-coach-app .bottom {
+  padding: 8px 16px 20px !important;
+  background: transparent !important;
+  margin-top: auto;
+}
+
+.guruji-coach-app .showMe {
+  width: 100%;
+  margin-bottom: 8px;
+  min-height: 46px !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #F3F4F6;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.guruji-coach-app .showMe:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.guruji-coach-app .bottom-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.guruji-coach-app .btn-back-action {
+  flex: 1;
+  min-height: 50px !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #E5E7EB !important;
+  font-weight: 700;
+  font-size: 13px !important;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guruji-coach-app .btn-back-action:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+.guruji-coach-app .btn-cancel-action {
+  flex: 1;
+  min-height: 50px !important;
+  border-radius: 16px !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+  color: #F87171 !important;
+  font-weight: 700;
+  font-size: 13px !important;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guruji-coach-app .btn-cancel-action:hover {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #FCA5A5 !important;
+}
+
+.guruji-coach-app .bottom-controls .next,
+.guruji-coach-app .next {
+  flex: 2;
+  width: auto;
+  min-height: 52px !important;
+  border: 0;
+  border-radius: 16px !important;
+  background: #FFFFFF !important;
+  color: #090D16 !important;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15) !important;
+  font-size: 14px !important;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.guruji-coach-app .next:hover:not(:disabled) {
+  background: #F3F4F6 !important;
+  transform: translateY(-1px);
+}
+
+.guruji-coach-app .next:disabled {
+  opacity: 0.35;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Readiness Report */
+.guruji-coach-app .report {
+  padding: 20px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.guruji-coach-app .readiness {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.guruji-coach-app .readyPill {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.guruji-coach-app .readyPill.coaching {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.guruji-coach-app .score {
+  font-size: 46px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin-top: 12px;
+  color: #FFFFFF;
+}
+
+.guruji-coach-app .score span {
+  font-size: 13px;
+  color: #9CA3AF;
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+.guruji-coach-app .metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.guruji-coach-app .metric {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.guruji-coach-app .metric small {
+  display: block;
+  color: #9CA3AF;
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.guruji-coach-app .metric b {
+  display: block;
+  font-size: 16px;
+  margin-top: 2px;
+  color: #FFFFFF;
+}
+
+.guruji-coach-app .fix {
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.guruji-coach-app .fix h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.guruji-coach-app .fixRow {
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+}
+
+.guruji-coach-app .fixRow b {
+  display: block;
+  font-size: 13px;
+  color: #F3F4F6;
+  margin-bottom: 2px;
+}
+
+.guruji-coach-app .fixRow span {
+  color: #9CA3AF;
+  line-height: 1.4;
+}
+
+.guruji-coach-app .introActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.guruji-coach-app .primary,
+.guruji-coach-app .secondary {
+  border: 0;
+  border-radius: 16px;
+  min-height: 50px;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.guruji-coach-app .primary {
+  flex: 1;
+  background: #FFFFFF;
+  color: #090D16;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+}
+
+.guruji-coach-app .primary:hover {
+  background: #F3F4F6;
+}
+
+.guruji-coach-app .secondary {
+  padding: 0 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E5E7EB;
+}
+
+.guruji-coach-app .secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 430px) {
+  .guruji-coach-app .heroTask .taskTitle {
+    font-size: 20px !important;
+  }
+  .guruji-coach-app .question {
+    font-size: 17px !important;
+  }
+}

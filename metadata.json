@@ -1,0 +1,8 @@
+{
+  "name": "Field Training TEST only for UI",
+  "description": "A premium learning application using the Clean Depth design system.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

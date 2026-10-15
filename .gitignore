@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Large visual library and art asset folders
+src/Guruji_Real_Photo_Visual_Library_500/
+src/Artist/
+
+# Internal IDE / AI Studio
+.aistudio/
+
+# OS files
+.DS_Store
+Thumbs.db

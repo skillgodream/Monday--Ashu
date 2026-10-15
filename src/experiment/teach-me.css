@@ -1,0 +1,735 @@
+:root {
+  --p: #1e293b;
+  --pl: #eef1fa;
+  --n: #1a1a1a;
+  --bg: #f4f4f6;
+  --tx: #2d2d2d;
+  --ok: #22543d;
+  --okb: #edf5f0;
+  --bad: #6b2d38;
+  --badb: #fdf2f4;
+  --amb: #f3f1fb;
+  --ln: #ececf0;
+}
+
+.teach-me-wrapper * {
+  box-sizing: border-box;
+}
+
+.teach-me-wrapper {
+  margin: 0;
+  background: #dfe4f1;
+  font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  color: var(--tx);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teach-me-app {
+  width: 100%;
+  max-width: 420px;
+  height: 100dvh;
+  margin: 0 auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 500px) {
+  .teach-me-wrapper {
+    padding: 16px;
+  }
+  .teach-me-app {
+    height: 780px;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(15, 27, 61, 0.25);
+  }
+}
+
+.teach-me-app .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--n);
+}
+
+.teach-me-app .top.h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  color: #fff;
+}
+
+.teach-me-app .top button {
+  border: 0;
+  background: rgba(15, 27, 61, 0.08);
+  color: inherit;
+  border-radius: 99px;
+  padding: 7px 14px;
+  font: 700 13px inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.teach-me-app .top.h button {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.teach-me-app .sl {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  animation: teachMeIn 0.3s both;
+}
+
+.teach-me-app .sl.full {
+  padding: 0;
+}
+
+@keyframes teachMeIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+
+.teach-me-app .pill {
+  align-self: flex-start;
+  background: var(--pl);
+  color: var(--p);
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 99px;
+  padding: 5px 12px;
+}
+
+.teach-me-app .pill.stage-orient-pill {
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 800;
+}
+
+.teach-me-app .pill.stage-prepare-pill {
+  background: #d1fae5;
+  color: #065f46;
+  font-weight: 800;
+}
+
+.teach-me-app .pill.stage-perform-pill {
+  background: #dbeafe;
+  color: #1e40af;
+  font-weight: 800;
+}
+
+.teach-me-app .pill.stage-control-pill {
+  background: #ffe4e6;
+  color: #9f1239;
+  font-weight: 800;
+}
+
+.teach-me-app .pill.stage-decide-pill {
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 800;
+}
+
+.teach-me-app .pill.stage-handle-pill {
+  background: #f3e8ff;
+  color: #6b21a8;
+  font-weight: 800;
+}
+
+.teach-me-app .pill.stage-prove-pill {
+  background: #fef9c3;
+  color: #854d0e;
+  font-weight: 800;
+}
+
+.teach-me-app h1,
+.teach-me-app h2 {
+  color: var(--n);
+  letter-spacing: -0.02em;
+  margin: 10px 0 8px;
+}
+
+.teach-me-app h1 {
+  font-size: 31px;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.teach-me-app h2 {
+  font-size: 25px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.teach-me-app p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.teach-me-app .sm {
+  font-size: 14px;
+}
+
+.teach-me-app .im {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #dbe3ff, #f3f5ff);
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  margin: 10px 0;
+  flex: none;
+}
+
+.teach-me-app .im.t {
+  aspect-ratio: 4 / 3;
+}
+
+.teach-me-app .im img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teach-me-app .im:before,
+.teach-me-app .im:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(59, 79, 224, 0.12);
+}
+
+.teach-me-app .im:before {
+  width: 130px;
+  height: 130px;
+  right: -34px;
+  top: -34px;
+}
+
+.teach-me-app .im:after {
+  width: 84px;
+  height: 84px;
+  left: -22px;
+  bottom: -26px;
+}
+
+.teach-me-app .im.hf .ic {
+  margin-top: -46px;
+}
+
+.teach-me-app .im .tk .ic {
+  color: #fff;
+  width: 11px;
+  height: 11px;
+  margin: 0;
+}
+
+.teach-me-app .im .ic {
+  width: 78px;
+  height: 78px;
+  color: var(--p);
+  position: relative;
+  z-index: 1;
+}
+
+.teach-me-app .ic {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.teach-me-app .hero {
+  flex: 1;
+  min-height: 100%;
+  padding: 70px 24px 28px;
+  background: radial-gradient(70% 45% at 85% 18%, rgba(90, 110, 255, 0.55), transparent),
+              linear-gradient(165deg, #0f1b3d, #16275a 60%, #1c2f6e);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.teach-me-app .hero h1 {
+  color: #fff;
+  font-size: 34px;
+}
+
+.teach-me-app .hero .pill {
+  background: var(--p);
+  color: #fff;
+}
+
+.teach-me-app .hero p {
+  color: #cfd8f5;
+}
+
+.teach-me-app .hero .art {
+  position: absolute;
+  right: -30px;
+  top: 60px;
+  width: 230px;
+  height: 230px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.teach-me-app .cta {
+  border: 0;
+  background: var(--p);
+  color: #fff;
+  border-radius: 99px;
+  padding: 16px 26px;
+  font: 800 17px inherit;
+  font-family: inherit;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 52px;
+  box-shadow: 0 10px 22px rgba(59, 79, 224, 0.5);
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.teach-me-app .cta .ic {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.4;
+}
+
+
+
+.teach-me-app .row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 9px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--n);
+  line-height: 1.35;
+}
+
+.teach-me-app .num {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--p);
+  color: #fff;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+
+.teach-me-app .dot {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--p);
+  margin: 0 6px;
+}
+
+.teach-me-app .bul {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.teach-me-app .bul .dot {
+  margin-top: 8px;
+}
+
+.teach-me-app .fl {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 20px rgba(15, 27, 61, 0.2);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--n);
+  z-index: 2;
+}
+
+.teach-me-app .fl div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 3px 0;
+}
+
+.teach-me-app .tk {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ok);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.teach-me-app .tk .ic {
+  width: 11px;
+  height: 11px;
+  stroke-width: 3.2;
+}
+
+.teach-me-app .pan {
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 8px 0;
+}
+
+.teach-me-app .do {
+  background: var(--okb);
+}
+
+.teach-me-app .dont {
+  background: var(--badb);
+}
+
+.teach-me-app .pan h3 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: var(--n);
+  font-weight: 800;
+}
+
+.teach-me-app .big {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+.teach-me-app .big .ic {
+  width: 22px;
+  height: 22px;
+  stroke-width: 3;
+}
+
+.teach-me-app .do .big {
+  background: var(--ok);
+}
+
+.teach-me-app .dont .big {
+  background: var(--bad);
+}
+
+.teach-me-app .it {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 8px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--n);
+}
+
+.teach-me-app .it .tk {
+  margin-top: 2px;
+}
+
+.teach-me-app .dont .tk {
+  background: var(--bad);
+}
+
+.teach-me-app .rule {
+  background: var(--badb);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.teach-me-app .rule .pill {
+  background: #ffd9d4;
+  color: var(--bad);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+}
+
+.teach-me-app .ex {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bad);
+  color: #fff;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.teach-me-app .rule h2 {
+  font-size: 22px;
+}
+
+.teach-me-app .why {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 8px;
+}
+
+.teach-me-app .why b {
+  color: var(--bad);
+  display: block;
+  font-size: 13px;
+}
+
+.teach-me-app .slash {
+  position: absolute;
+  z-index: 2;
+  width: 90px;
+  height: 90px;
+  color: var(--bad);
+}
+
+.teach-me-app .slash .ic {
+  stroke-width: 2.6;
+  width: 100%;
+  height: 100%;
+}
+
+.teach-me-app .q {
+  background: var(--pl);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+  color: var(--p);
+  font-size: 17px;
+  margin-top: 6px;
+}
+
+.teach-me-app .q i {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--p);
+  color: #fff;
+  font-style: normal;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.teach-me-app .opt {
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 2px solid var(--ln);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 8px 0;
+  font: 700 16px inherit;
+  font-family: inherit;
+  color: var(--n);
+  min-height: 56px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.teach-me-app .opt.ok {
+  border-color: var(--ok);
+  background: var(--okb);
+}
+
+.teach-me-app .opt.bad {
+  border-color: var(--bad);
+  background: var(--badb);
+  opacity: 0.7;
+  animation: teachMeSh 0.3s;
+}
+
+@keyframes teachMeSh {
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.teach-me-app .fb {
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #fff;
+  color: var(--n);
+  margin-top: 4px;
+}
+
+.teach-me-app .tkp {
+  background: var(--amb);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.teach-me-app .tkp .pill {
+  background: #ffe9a0;
+  color: #7a5a00;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.teach-me-app .tkp .pill .ic {
+  width: 16px;
+  height: 16px;
+}
+
+.teach-me-app .tkp .it {
+  font-size: 16px;
+}
+
+.teach-me-app .done {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.teach-me-app .nx2 {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  text-align: left;
+  margin-top: 14px;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(15, 27, 61, 0.08);
+}
+
+.teach-me-app .nx2 .go {
+  margin-left: auto;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--p);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.teach-me-app .nx2 .go .ic {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.6;
+}
+
+.teach-me-app .conf {
+  width: 84px;
+  height: 84px;
+  color: #f0a030;
+}
+
+.teach-me-app .ft {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 14px;
+  background: var(--bg);
+}
+
+.teach-me-app .bk {
+  border: 1px solid var(--ln);
+  background: #fff;
+  color: var(--n);
+  border-radius: 99px;
+  padding: 0 16px;
+  font: 700 15px inherit;
+  font-family: inherit;
+  min-height: 48px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.teach-me-app .nx {
+  background: var(--p);
+  color: #fff;
+  border: 0;
+  border-radius: 99px;
+  padding: 0 20px;
+  font: 700 15px inherit;
+  font-family: inherit;
+  min-height: 48px;
+  box-shadow: 0 6px 14px rgba(59, 79, 224, 0.35);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.teach-me-app .nx:disabled {
+  opacity: 0.35;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.teach-me-app .ds {
+  display: flex;
+  gap: 4px;
+}
+
+.teach-me-app .ds i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ln);
+  transition: all 0.2s;
+}
+
+.teach-me-app .ds i.a {
+  background: var(--p);
+  width: 16px;
+  border-radius: 4px;
+}
+
+.teach-me-app button:focus-visible {
+  outline: 3px solid #f0a030;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .teach-me-app * {
+    animation: none !important;
+  }
+}

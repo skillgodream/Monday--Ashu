@@ -1,0 +1,3162 @@
+{
+  "extractedDoc": {
+    "filename": "Aviation_Ground_Operations_SOP.pdf",
+    "wordCount": 669,
+    "diagnostics": {
+      "totalChars": 4852,
+      "readableChars": 4851,
+      "controlChars": 0,
+      "replacementChars": 0,
+      "wordCount": 669,
+      "pageCount": 4
+    }
+  },
+  "ctm": {
+    "role": "Ground Operations Agent",
+    "process": "Aviation_Ground_Operations_SOP",
+    "purpose": "Perform Aviation_Ground_Operations_SOP accurately.",
+    "scope": "Active workspace",
+    "prerequisites": [
+      {
+        "id": "prereq-1",
+        "text": "Check assigned flight, gate, scheduled departure time and current operational status.",
+        "source": {
+          "pageOrSection": "S1.pre1",
+          "sourceRef": "S1.pre1",
+          "sourceText": "Check assigned flight, gate, scheduled departure time and current operational status."
+        }
+      },
+      {
+        "id": "prereq-2",
+        "text": "Confirm the required communication channel and assigned supervisor/turnaround coordinator.",
+        "source": {
+          "pageOrSection": "S1.pre2",
+          "sourceRef": "S1.pre2",
+          "sourceText": "Confirm the required communication channel and assigned supervisor/turnaround coordinator."
+        }
+      },
+      {
+        "id": "prereq-3",
+        "text": "Check that passenger, gate and boarding information is available.",
+        "source": {
+          "pageOrSection": "S1.pre3",
+          "sourceRef": "S1.pre3",
+          "sourceText": "Check that passenger, gate and boarding information is available."
+        }
+      },
+      {
+        "id": "prereq-4",
+        "text": "Confirm the gate/boarding area is ready and access routes are clear.",
+        "source": {
+          "pageOrSection": "S1.pre4",
+          "sourceRef": "S1.pre4",
+          "sourceText": "Confirm the gate/boarding area is ready and access routes are clear."
+        }
+      },
+      {
+        "id": "prereq-5",
+        "text": "Ensure required identification, communication equipment and authorised equipment are available and serviceable.",
+        "source": {
+          "pageOrSection": "S1.pre5",
+          "sourceRef": "S1.pre5",
+          "sourceText": "Ensure required identification, communication equipment and authorised equipment are available and serviceable."
+        }
+      }
+    ],
+    "toolsAndSystems": [
+      {
+        "id": "tool-1",
+        "name": "COMMUNICATION EQUIPMENT",
+        "purpose": "• Ensure required identification, communication equipment and authorised equipment are available and serviceable.",
+        "source": {
+          "pageOrSection": "S1.tool1",
+          "sourceRef": "S1.tool1",
+          "sourceText": "• Ensure required identification, communication equipment and authorised equipment are available and serviceable."
+        }
+      }
+    ],
+    "steps": [
+      {
+        "id": "step-1",
+        "stepNumber": 1,
+        "title": "Receive authorised instruction to begin boarding.",
+        "instruction": "Receive authorised instruction to begin boarding.",
+        "category": "DO",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Confirm readiness: Receive authorised instruction to begin boarding.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 2 · Passenger Boarding",
+          "sourceRef": "S1.sec1",
+          "sourceText": "Confirm readiness: Receive authorised instruction to begin boarding."
+        }
+      },
+      {
+        "id": "step-2",
+        "stepNumber": 2,
+        "title": "Make clear boarding announcements and provide requ",
+        "instruction": "Make clear boarding announcements and provide required instructions.",
+        "category": "DO",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Prepare passengers: Make clear boarding announcements and provide required instructions.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 2 · Passenger Boarding",
+          "sourceRef": "S1.sec2",
+          "sourceText": "Prepare passengers: Make clear boarding announcements and provide required instructions."
+        }
+      },
+      {
+        "id": "step-3",
+        "stepNumber": 3,
+        "title": "Check boarding documents using the approved proces",
+        "instruction": "Check boarding documents using the approved process.",
+        "category": "CHECK",
+        "actionVerb": "Check",
+        "whyItMatters": "SOP Requirement: Verify: Check boarding documents using the approved process.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 2 · Passenger Boarding",
+          "sourceRef": "S1.sec3",
+          "sourceText": "Verify: Check boarding documents using the approved process."
+        }
+      },
+      {
+        "id": "step-4",
+        "stepNumber": 4,
+        "title": "Manage the queue and maintain orderly passenger mo",
+        "instruction": "Manage the queue and maintain orderly passenger movement.",
+        "category": "DO",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Control flow: Manage the queue and maintain orderly passenger movement.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 2 · Passenger Boarding",
+          "sourceRef": "S1.sec4",
+          "sourceText": "Control flow: Manage the queue and maintain orderly passenger movement."
+        }
+      },
+      {
+        "id": "step-5",
+        "stepNumber": 5,
+        "title": "Identify passengers requiring assistance and coord",
+        "instruction": "Identify passengers requiring assistance and coordinate authorised support.",
+        "category": "DO",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Monitor: Identify passengers requiring assistance and coordinate authorised support.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 2 · Passenger Boarding",
+          "sourceRef": "S1.sec5",
+          "sourceText": "Monitor: Identify passengers requiring assistance and coordinate authorised support."
+        }
+      },
+      {
+        "id": "step-6",
+        "stepNumber": 6,
+        "title": "Follow the approved process for final passenger re",
+        "instruction": "Follow the approved process for final passenger reconciliation and boarding closure.",
+        "category": "DO",
+        "actionVerb": "Process",
+        "whyItMatters": "SOP Requirement: Close: Follow the approved process for final passenger reconciliation and boarding closure.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 2 · Passenger Boarding",
+          "sourceRef": "S1.sec6",
+          "sourceText": "Close: Follow the approved process for final passenger reconciliation and boarding closure."
+        }
+      },
+      {
+        "id": "step-7",
+        "stepNumber": 7,
+        "title": "Passenger boarding status is reconciled according",
+        "instruction": "Passenger boarding status is reconciled according to the approved process.",
+        "category": "DO",
+        "actionVerb": "Process",
+        "whyItMatters": "SOP Requirement: Passenger boarding status is reconciled according to the approved process.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 3 · Final Turnaround Check",
+          "sourceRef": "S1.sec7",
+          "sourceText": "Passenger boarding status is reconciled according to the approved process."
+        }
+      },
+      {
+        "id": "step-8",
+        "stepNumber": 8,
+        "title": "Any unresolved passenger, safety or security issue",
+        "instruction": "Any unresolved passenger, safety or security issue has been escalated.",
+        "category": "ESCALATE",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Any unresolved passenger, safety or security issue has been escalated.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 3 · Final Turnaround Check",
+          "sourceRef": "S1.sec8",
+          "sourceText": "Any unresolved passenger, safety or security issue has been escalated."
+        }
+      },
+      {
+        "id": "step-9",
+        "stepNumber": 9,
+        "title": "Gate and boarding area remain controlled and safe.",
+        "instruction": "Gate and boarding area remain controlled and safe.",
+        "category": "DO",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Gate and boarding area remain controlled and safe.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 3 · Final Turnaround Check",
+          "sourceRef": "S1.sec9",
+          "sourceText": "Gate and boarding area remain controlled and safe."
+        }
+      },
+      {
+        "id": "step-10",
+        "stepNumber": 10,
+        "title": "Required operational communication is complete.",
+        "instruction": "Required operational communication is complete.",
+        "category": "DO",
+        "actionVerb": "Perform",
+        "whyItMatters": "SOP Requirement: Required operational communication is complete.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 3 · Final Turnaround Check",
+          "sourceRef": "S1.sec10",
+          "sourceText": "Required operational communication is complete."
+        }
+      },
+      {
+        "id": "step-11",
+        "stepNumber": 11,
+        "title": "Flight is released/closed only through the authori",
+        "instruction": "Flight is released/closed only through the authorised process.",
+        "category": "DO",
+        "actionVerb": "Process",
+        "whyItMatters": "SOP Requirement: Flight is released/closed only through the authorised process.",
+        "criticalControl": false,
+        "source": {
+          "pageOrSection": "Page 3 · Final Turnaround Check",
+          "sourceRef": "S1.sec11",
+          "sourceText": "Flight is released/closed only through the authorised process."
+        }
+      }
+    ],
+    "controls": [
+      {
+        "id": "ctrl-crit-1",
+        "rule": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "explicit_source",
+        "source": {
+          "pageOrSection": "S1.ctrl1",
+          "sourceRef": "S1.ctrl1",
+          "sourceText": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control."
+        }
+      },
+      {
+        "id": "ctrl-crit-2",
+        "rule": "Maintain clear passenger movement routes and emergency access.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.ctrl2",
+          "sourceRef": "S1.ctrl2",
+          "sourceText": "Maintain clear passenger movement routes and emergency access."
+        }
+      },
+      {
+        "id": "ctrl-crit-3",
+        "rule": "Do not allow unauthorised access to restricted or controlled areas.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.ctrl3",
+          "sourceRef": "S1.ctrl3",
+          "sourceText": "Do not allow unauthorised access to restricted or controlled areas."
+        }
+      },
+      {
+        "id": "ctrl-crit-4",
+        "rule": "Follow approved identity, boarding-document and passenger verification procedures.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.ctrl4",
+          "sourceRef": "S1.ctrl4",
+          "sourceText": "Follow approved identity, boarding-document and passenger verification procedures."
+        }
+      },
+      {
+        "id": "ctrl-crit-5",
+        "rule": "Report unattended or suspicious items immediately through the authorised security process.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.ctrl5",
+          "sourceRef": "S1.ctrl5",
+          "sourceText": "Report unattended or suspicious items immediately through the authorised security process."
+        }
+      },
+      {
+        "id": "ctrl-crit-6",
+        "rule": "Do not bypass security controls because of time pressure.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.ctrl6",
+          "sourceRef": "S1.ctrl6",
+          "sourceText": "Do not bypass security controls because of time pressure."
+        }
+      },
+      {
+        "id": "ctrl-crit-7",
+        "rule": "Use only authorised equipment and follow airside safety rules.",
+        "rationale": "Critical requirement for Ground Operations Agent",
+        "type": "compliance",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.ctrl7",
+          "sourceRef": "S1.ctrl7",
+          "sourceText": "Use only authorised equipment and follow airside safety rules."
+        }
+      },
+      {
+        "id": "ctrl-safe-1",
+        "rule": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "type": "safety",
+        "isCritical": true,
+        "provenance": "explicit_source",
+        "source": {
+          "pageOrSection": "S1.safe1",
+          "sourceRef": "S1.safe1",
+          "sourceText": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control."
+        }
+      },
+      {
+        "id": "ctrl-safe-2",
+        "rule": "Maintain clear passenger movement routes and emergency access.",
+        "type": "safety",
+        "isCritical": true,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.safe2",
+          "sourceRef": "S1.safe2",
+          "sourceText": "Maintain clear passenger movement routes and emergency access."
+        }
+      },
+      {
+        "id": "ctrl-safe-3",
+        "rule": "Report unattended or suspicious items immediately through the authorised security process.",
+        "type": "safety",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.safe3",
+          "sourceRef": "S1.safe3",
+          "sourceText": "Report unattended or suspicious items immediately through the authorised security process."
+        }
+      },
+      {
+        "id": "ctrl-safe-4",
+        "rule": "Do not bypass security controls because of time pressure.",
+        "type": "safety",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.safe4",
+          "sourceRef": "S1.safe4",
+          "sourceText": "Do not bypass security controls because of time pressure."
+        }
+      },
+      {
+        "id": "ctrl-safe-5",
+        "rule": "Use only authorised equipment and follow airside safety rules.",
+        "type": "safety",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.safe5",
+          "sourceRef": "S1.safe5",
+          "sourceText": "Use only authorised equipment and follow airside safety rules."
+        }
+      },
+      {
+        "id": "ctrl-qual-1",
+        "rule": "Was every boarding verification completed correctly?",
+        "type": "quality",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.qual1",
+          "sourceRef": "S1.qual1",
+          "sourceText": "Was every boarding verification completed correctly?"
+        }
+      },
+      {
+        "id": "ctrl-qual-2",
+        "rule": "Were safety and security controls maintained?",
+        "type": "quality",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.qual2",
+          "sourceRef": "S1.qual2",
+          "sourceText": "Were safety and security controls maintained?"
+        }
+      },
+      {
+        "id": "ctrl-qual-3",
+        "rule": "Were exceptions handled through the approved process?",
+        "type": "quality",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.qual3",
+          "sourceRef": "S1.qual3",
+          "sourceText": "Were exceptions handled through the approved process?"
+        }
+      },
+      {
+        "id": "ctrl-qual-4",
+        "rule": "Were unresolved issues escalated correctly?",
+        "type": "quality",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.qual4",
+          "sourceRef": "S1.qual4",
+          "sourceText": "Were unresolved issues escalated correctly?"
+        }
+      },
+      {
+        "id": "ctrl-qual-5",
+        "rule": "Was final passenger/boarding status accurately reconciled?",
+        "type": "quality",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.qual5",
+          "sourceRef": "S1.qual5",
+          "sourceText": "Was final passenger/boarding status accurately reconciled?"
+        }
+      },
+      {
+        "id": "ctrl-qual-6",
+        "rule": "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.",
+        "type": "quality",
+        "isCritical": false,
+        "provenance": "engine_inferred",
+        "source": {
+          "pageOrSection": "S1.qual6",
+          "sourceRef": "S1.qual6",
+          "sourceText": "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely."
+        }
+      }
+    ],
+    "decisions": [
+      {
+        "id": "dec-1",
+        "situation": "Passenger document issue",
+        "condition": "Verify SOP guideline before proceeding",
+        "compliantAction": "Do not improvise; follow the approved verification/escalation process.",
+        "rationale": "Passenger document issue: Do not improvise; follow the approved verification/escalation process.",
+        "source": {
+          "pageOrSection": "S1.dec1",
+          "sourceRef": "S1.dec1",
+          "sourceText": "Passenger document issue: Do not improvise; follow the approved verification/escalation process."
+        }
+      },
+      {
+        "id": "dec-2",
+        "situation": "Special assistance",
+        "condition": "Verify SOP guideline before proceeding",
+        "compliantAction": "Coordinate authorised support before proceeding.",
+        "rationale": "Special assistance: Coordinate authorised support before proceeding.",
+        "source": {
+          "pageOrSection": "S1.dec2",
+          "sourceRef": "S1.dec2",
+          "sourceText": "Special assistance: Coordinate authorised support before proceeding."
+        }
+      },
+      {
+        "id": "dec-3",
+        "situation": "Gate or flight information changes",
+        "condition": "Verify SOP guideline before proceeding",
+        "compliantAction": "Confirm the current instruction through the authorised operational channel.",
+        "rationale": "Gate or flight information changes: Confirm the current instruction through the authorised operational channel.",
+        "source": {
+          "pageOrSection": "S1.dec3",
+          "sourceRef": "S1.dec3",
+          "sourceText": "Gate or flight information changes: Confirm the current instruction through the authorised operational channel."
+        }
+      },
+      {
+        "id": "dec-4",
+        "situation": "Security concern",
+        "condition": "Verify SOP guideline before proceeding",
+        "compliantAction": "Do not investigate beyond your role; follow the approved security escalation process.",
+        "rationale": "Security concern: Do not investigate beyond your role; follow the approved security escalation process.",
+        "source": {
+          "pageOrSection": "S1.dec4",
+          "sourceRef": "S1.dec4",
+          "sourceText": "Security concern: Do not investigate beyond your role; follow the approved security escalation process."
+        }
+      }
+    ],
+    "exceptionsAndEscalations": [
+      {
+        "id": "exc-1",
+        "type": "exception",
+        "trigger": "Document mismatch",
+        "resolutionOrAction": "pause the affected passenger's boarding and seek authorised resolution.",
+        "source": {
+          "pageOrSection": "S1.exp1",
+          "sourceRef": "S1.exp1",
+          "sourceText": "Document mismatch: pause the affected passenger's boarding and seek authorised resolution."
+        }
+      },
+      {
+        "id": "exc-2",
+        "type": "exception",
+        "trigger": "Wrong gate/flight",
+        "resolutionOrAction": "verify current flight information before directing the passenger.",
+        "source": {
+          "pageOrSection": "S1.exp2",
+          "sourceRef": "S1.exp2",
+          "sourceText": "Wrong gate/flight: verify current flight information before directing the passenger."
+        }
+      },
+      {
+        "id": "exc-3",
+        "type": "exception",
+        "trigger": "Boarding system unavailable",
+        "resolutionOrAction": "use only the approved contingency process. (Note: Offline fallback procedures are specified in supplementary system contingency SOP)",
+        "source": {
+          "pageOrSection": "S1.exp3",
+          "sourceRef": "S1.exp3",
+          "sourceText": "Boarding system unavailable: use only the approved contingency process."
+        }
+      },
+      {
+        "id": "exc-4",
+        "type": "exception",
+        "trigger": "Boarding delay",
+        "resolutionOrAction": "communicate through the designated operational channel and follow revised instructions.",
+        "source": {
+          "pageOrSection": "S1.exp4",
+          "sourceRef": "S1.exp4",
+          "sourceText": "Boarding delay: communicate through the designated operational channel and follow revised instructions."
+        }
+      },
+      {
+        "id": "exc-5",
+        "type": "exception",
+        "trigger": "Unattended item or suspicious behaviour",
+        "resolutionOrAction": "maintain appropriate distance and initiate the authorised security response.",
+        "source": {
+          "pageOrSection": "S1.exp5",
+          "sourceRef": "S1.exp5",
+          "sourceText": "Unattended item or suspicious behaviour: maintain appropriate distance and initiate the authorised security response."
+        }
+      },
+      {
+        "id": "escala-1",
+        "type": "escalation",
+        "trigger": "Security concern or unauthorised access.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc1",
+          "sourceRef": "S1.esc1",
+          "sourceText": "Security concern or unauthorised access."
+        }
+      },
+      {
+        "id": "escala-2",
+        "type": "escalation",
+        "trigger": "Unattended or suspicious item.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc2",
+          "sourceRef": "S1.esc2",
+          "sourceText": "Unattended or suspicious item."
+        }
+      },
+      {
+        "id": "escala-3",
+        "type": "escalation",
+        "trigger": "Passenger identity or boarding-document issue that cannot be resolved within your authority.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc3",
+          "sourceRef": "S1.esc3",
+          "sourceText": "Passenger identity or boarding-document issue that cannot be resolved within your authority."
+        }
+      },
+      {
+        "id": "escala-4",
+        "type": "escalation",
+        "trigger": "Safety hazard in the gate/boarding area.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc4",
+          "sourceRef": "S1.esc4",
+          "sourceText": "Safety hazard in the gate/boarding area."
+        }
+      },
+      {
+        "id": "escala-5",
+        "type": "escalation",
+        "trigger": "Medical emergency or passenger requiring urgent assistance.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc5",
+          "sourceRef": "S1.esc5",
+          "sourceText": "Medical emergency or passenger requiring urgent assistance."
+        }
+      },
+      {
+        "id": "escala-6",
+        "type": "escalation",
+        "trigger": "Equipment/system failure affecting safe boarding.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc6",
+          "sourceRef": "S1.esc6",
+          "sourceText": "Equipment/system failure affecting safe boarding."
+        }
+      },
+      {
+        "id": "escala-7",
+        "type": "escalation",
+        "trigger": "Conflicting operational instructions.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc7",
+          "sourceRef": "S1.esc7",
+          "sourceText": "Conflicting operational instructions."
+        }
+      },
+      {
+        "id": "escala-8",
+        "type": "escalation",
+        "trigger": "Any situation where it is unclear whether it is safe or authorised to continue.",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "source": {
+          "pageOrSection": "S1.esc8",
+          "sourceRef": "S1.esc8",
+          "sourceText": "Any situation where it is unclear whether it is safe or authorised to continue."
+        }
+      },
+      {
+        "id": "escala-9",
+        "type": "escalation",
+        "trigger": "Mandatory Escalation Protocol Rule",
+        "resolutionOrAction": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED.",
+        "target": "STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED.",
+        "source": {
+          "pageOrSection": "S1.esc9",
+          "sourceRef": "S1.esc9",
+          "sourceText": "Escalation Rule: STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED."
+        }
+      }
+    ],
+    "prohibitedActions": [
+      {
+        "id": "prohib-1",
+        "mistake": "Bypass identity, boarding or security controls to save time.",
+        "prevention": "Follow written Ground Operations Agent SOP instructions carefully.",
+        "source": {
+          "pageOrSection": "S1.err1",
+          "sourceRef": "S1.err1",
+          "sourceText": "Bypass identity, boarding or security controls to save time."
+        }
+      },
+      {
+        "id": "prohib-2",
+        "mistake": "Allow unauthorised access to restricted areas.",
+        "prevention": "Follow written Ground Operations Agent SOP instructions carefully.",
+        "source": {
+          "pageOrSection": "S1.err2",
+          "sourceRef": "S1.err2",
+          "sourceText": "Allow unauthorised access to restricted areas."
+        }
+      },
+      {
+        "id": "prohib-3",
+        "mistake": "Handle or investigate a suspicious item beyond your authorised procedure.",
+        "prevention": "Follow written Ground Operations Agent SOP instructions carefully.",
+        "source": {
+          "pageOrSection": "S1.err3",
+          "sourceRef": "S1.err3",
+          "sourceText": "Handle or investigate a suspicious item beyond your authorised procedure."
+        }
+      },
+      {
+        "id": "prohib-4",
+        "mistake": "Ignore a safety hazard because boarding is delayed.",
+        "prevention": "Follow written Ground Operations Agent SOP instructions carefully.",
+        "source": {
+          "pageOrSection": "S1.err4",
+          "sourceRef": "S1.err4",
+          "sourceText": "Ignore a safety hazard because boarding is delayed."
+        }
+      },
+      {
+        "id": "prohib-5",
+        "mistake": "Give passengers instructions based on unverified information.",
+        "prevention": "Follow written Ground Operations Agent SOP instructions carefully.",
+        "source": {
+          "pageOrSection": "S1.err5",
+          "sourceRef": "S1.err5",
+          "sourceText": "Give passengers instructions based on unverified information."
+        }
+      },
+      {
+        "id": "prohib-6",
+        "mistake": "Continue when an unresolved safety or security concern requires escalation.",
+        "prevention": "Follow written Ground Operations Agent SOP instructions carefully.",
+        "source": {
+          "pageOrSection": "S1.err6",
+          "sourceRef": "S1.err6",
+          "sourceText": "Continue when an unresolved safety or security concern requires escalation."
+        }
+      }
+    ],
+    "ambiguities": []
+  },
+  "slideDeck": {
+    "total": 40,
+    "slides": [
+      {
+        "type": "WELCOME",
+        "tag": "Training deck",
+        "title": "Aviation Ground Operations",
+        "role": "Role: Ground Operations Agent",
+        "content": "Perform Aviation_Ground_Operations_SOP accurately.",
+        "cta": "Let's Begin"
+      },
+      {
+        "type": "OBJECTIVES",
+        "title": "What You Will Learn",
+        "lead": "By the end of this training, you will be able to:",
+        "items": [
+          "Receive authorised instruction to begin boarding.",
+          "Make clear boarding announcements and provide requ",
+          "Check boarding documents using the approved proces",
+          "Manage the queue and maintain orderly passenger mo",
+          "Identify passengers requiring assistance and coord",
+          "Follow the approved process for final passenger re",
+          "Passenger boarding status is reconciled according",
+          "Any unresolved passenger, safety or security issue",
+          "Gate and boarding area remain controlled and safe.",
+          "Required operational communication is complete.",
+          "Flight is released/closed only through the authori"
+        ],
+        "content": "Receive authorised instruction to begin boarding.\nMake clear boarding announcements and provide requ\nCheck boarding documents using the approved proces\nManage the queue and maintain orderly passenger mo\nIdentify passengers requiring assistance and coord\nFollow the approved process for final passenger re\nPassenger boarding status is reconciled according\nAny unresolved passenger, safety or security issue\nGate and boarding area remain controlled and safe.\nRequired operational communication is complete.\nFlight is released/closed only through the authori"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "What has changed",
+        "title": "What’s New in This Process",
+        "ic": "warn",
+        "items": [
+          "Gate or flight information changes: Confirm the current instruction through the authorised operational channel.",
+          "Boarding delay: communicate through the designated operational channel and follow revised instructions."
+        ],
+        "content": "Gate or flight information changes: Confirm the current instruction through the authorised operational channel.\nBoarding delay: communicate through the designated operational channel and follow revised instructions.",
+        "evidenceSource": "From the SOP"
+      },
+      {
+        "type": "SECTION_INTRO",
+        "sec": "Before you start",
+        "title": "Get Ready",
+        "content": "Make sure you have these in place before you begin.",
+        "fl": [
+          "Check assigned flight, gate, scheduled departure time and current operational status.",
+          "Confirm the required communication channel and assigned supervisor/turnaround coordinator.",
+          "Check that passenger, gate and boarding information is available.",
+          "Confirm the gate/boarding area is ready and access routes are clear.",
+          "Ensure required identification, communication equipment and authorised equipment are available…",
+          "COMMUNICATION EQUIPMENT — • Ensure required identification, communication equipment and authorised equipment…"
+        ]
+      },
+      {
+        "type": "SECTION_INTRO",
+        "sec": "The process",
+        "title": "11 Steps, Start to Finish (1/2)",
+        "content": "Here is the flow. Next, we go through each step.",
+        "fl": [
+          "Receive authorised instruction to begin boarding.",
+          "Make clear boarding announcements and provide requ",
+          "Check boarding documents using the approved proces",
+          "Manage the queue and maintain orderly passenger mo",
+          "Identify passengers requiring assistance and coord",
+          "Follow the approved process for final passenger re",
+          "Passenger boarding status is reconciled according",
+          "Any unresolved passenger, safety or security issue",
+          "Gate and boarding area remain controlled and safe."
+        ]
+      },
+      {
+        "type": "SECTION_INTRO",
+        "sec": "The process",
+        "title": "11 Steps, Start to Finish (2/2)",
+        "content": "Here is the flow. Next, we go through each step.",
+        "fl": [
+          "Required operational communication is complete.",
+          "Flight is released/closed only through the authori"
+        ]
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Step 1 of 6",
+        "title": "Receive authorised instruction to begin boarding. & Make…",
+        "ic": "check",
+        "items": [
+          "Receive authorised instruction to begin boarding.",
+          "Make clear boarding announcements and provide required instructions."
+        ],
+        "content": "Receive authorised instruction to begin boarding.\nMake clear boarding announcements and provide required instructions.",
+        "evidenceSource": "Page 2 · Passenger Boarding"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Step 2 of 6",
+        "title": "Check boarding documents using the approved proces & Manage…",
+        "ic": "check",
+        "items": [
+          "Check boarding documents using the approved process.",
+          "Manage the queue and maintain orderly passenger movement."
+        ],
+        "content": "Check boarding documents using the approved process.\nManage the queue and maintain orderly passenger movement.",
+        "evidenceSource": "Page 2 · Passenger Boarding"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Step 3 of 6",
+        "title": "Identify passengers requiring assistance and coord & Follow…",
+        "ic": "check",
+        "items": [
+          "Identify passengers requiring assistance and coordinate authorised support.",
+          "Follow the approved process for final passenger reconciliation and boarding closure."
+        ],
+        "content": "Identify passengers requiring assistance and coordinate authorised support.\nFollow the approved process for final passenger reconciliation and boarding closure.",
+        "evidenceSource": "Page 2 · Passenger Boarding"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Step 4 of 6",
+        "title": "Passenger boarding status is reconciled according & Any…",
+        "ic": "check",
+        "items": [
+          "Passenger boarding status is reconciled according to the approved process.",
+          "Any unresolved passenger, safety or security issue has been escalated."
+        ],
+        "content": "Passenger boarding status is reconciled according to the approved process.\nAny unresolved passenger, safety or security issue has been escalated.",
+        "evidenceSource": "Page 3 · Final Turnaround Check"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Step 5 of 6",
+        "title": "Gate and boarding area remain controlled and safe. &…",
+        "ic": "check",
+        "items": [
+          "Gate and boarding area remain controlled and safe.",
+          "Required operational communication is complete."
+        ],
+        "content": "Gate and boarding area remain controlled and safe.\nRequired operational communication is complete.",
+        "evidenceSource": "Page 3 · Final Turnaround Check"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Step 6 of 6",
+        "title": "Flight is released/closed only through the authori",
+        "ic": "check",
+        "items": [
+          "Flight is released/closed only through the authorised process."
+        ],
+        "content": "Flight is released/closed only through the authorised process.",
+        "evidenceSource": "Page 3 · Final Turnaround Check"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Decision points",
+        "title": "When You Need to Decide",
+        "ic": "check",
+        "items": [
+          "Passenger document issue → Do not improvise; follow the approved verification/escalation process.",
+          "Special assistance → Coordinate authorised support before proceeding.",
+          "Gate or flight information changes → Confirm the current instruction through the authorised operational channel.",
+          "Security concern → Do not investigate beyond your role; follow the approved security escalation process."
+        ],
+        "content": "Passenger document issue → Do not improvise; follow the approved verification/escalation process.\nSpecial assistance → Coordinate authorised support before proceeding.\nGate or flight information changes → Confirm the current instruction through the authorised operational channel.\nSecurity concern → Do not investigate beyond your role; follow the approved security escalation process.",
+        "evidenceSource": "SOP decision points"
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "gurujiCoaching": {
+          "explanation": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Maintain clear passenger movement routes and emergency access.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Maintain clear passenger movement routes and emergency access.",
+        "gurujiCoaching": {
+          "explanation": "Maintain clear passenger movement routes and emergency access.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Do not allow unauthorised access to restricted or controlled areas.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Do not allow unauthorised access to restricted or controlled areas.",
+        "gurujiCoaching": {
+          "explanation": "Do not allow unauthorised access to restricted or controlled areas.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Follow approved identity, boarding-document and passenger verification procedures.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Follow approved identity, boarding-document and passenger verification procedures.",
+        "gurujiCoaching": {
+          "explanation": "Follow approved identity, boarding-document and passenger verification procedures.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Report unattended or suspicious items immediately through the authorised security process.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Report unattended or suspicious items immediately through the authorised security process.",
+        "gurujiCoaching": {
+          "explanation": "Report unattended or suspicious items immediately through the authorised security process.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Do not bypass security controls because of time pressure.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Do not bypass security controls because of time pressure.",
+        "gurujiCoaching": {
+          "explanation": "Do not bypass security controls because of time pressure.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Use only authorised equipment and follow airside safety rules.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Use only authorised equipment and follow airside safety rules.",
+        "gurujiCoaching": {
+          "explanation": "Use only authorised equipment and follow airside safety rules.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "gurujiCoaching": {
+          "explanation": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Maintain clear passenger movement routes and emergency access.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Maintain clear passenger movement routes and emergency access.",
+        "gurujiCoaching": {
+          "explanation": "Maintain clear passenger movement routes and emergency access.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Report unattended or suspicious items immediately through the authorised security process.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Report unattended or suspicious items immediately through the authorised security process.",
+        "gurujiCoaching": {
+          "explanation": "Report unattended or suspicious items immediately through the authorised security process.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Do not bypass security controls because of time pressure.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Do not bypass security controls because of time pressure.",
+        "gurujiCoaching": {
+          "explanation": "Do not bypass security controls because of time pressure.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Use only authorised equipment and follow airside safety rules.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Use only authorised equipment and follow airside safety rules.",
+        "gurujiCoaching": {
+          "explanation": "Use only authorised equipment and follow airside safety rules.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Was every boarding verification completed correctly?",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Was every boarding verification completed correctly?",
+        "gurujiCoaching": {
+          "explanation": "Was every boarding verification completed correctly?",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Were safety and security controls maintained?",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Were safety and security controls maintained?",
+        "gurujiCoaching": {
+          "explanation": "Were safety and security controls maintained?",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Were exceptions handled through the approved process?",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Were exceptions handled through the approved process?",
+        "gurujiCoaching": {
+          "explanation": "Were exceptions handled through the approved process?",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Were unresolved issues escalated correctly?",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Were unresolved issues escalated correctly?",
+        "gurujiCoaching": {
+          "explanation": "Were unresolved issues escalated correctly?",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Was final passenger/boarding status accurately reconciled?",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Was final passenger/boarding status accurately reconciled?",
+        "gurujiCoaching": {
+          "explanation": "Was final passenger/boarding status accurately reconciled?",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "IMPORTANT_RULE",
+        "title": "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.",
+        "why": "Do not skip or work around this rule.",
+        "ic": "warn",
+        "slash": 1,
+        "content": "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.",
+        "gurujiCoaching": {
+          "explanation": "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.",
+          "whyItMatters": "Do not skip or work around this rule.",
+          "nextMove": "If you cannot follow this, stop and check with your supervisor."
+        }
+      },
+      {
+        "type": "DO_DONT",
+        "title": "Do and Don’t (1/2)",
+        "content": "Common mistakes and how to avoid them.",
+        "dos": [
+          "Follow written Ground Operations Agent SOP instructions carefully.",
+          "Follow written Ground Operations Agent SOP instructions carefully.",
+          "Follow written Ground Operations Agent SOP instructions carefully."
+        ],
+        "donts": [
+          "Bypass identity, boarding or security controls to save time.",
+          "Allow unauthorised access to restricted areas.",
+          "Handle or investigate a suspicious item beyond your authorised procedure."
+        ],
+        "comparison": {
+          "do": [
+            "Follow written Ground Operations Agent SOP instructions carefully.",
+            "Follow written Ground Operations Agent SOP instructions carefully.",
+            "Follow written Ground Operations Agent SOP instructions carefully."
+          ],
+          "dont": [
+            "Bypass identity, boarding or security controls to save time.",
+            "Allow unauthorised access to restricted areas.",
+            "Handle or investigate a suspicious item beyond your authorised procedure."
+          ]
+        }
+      },
+      {
+        "type": "DO_DONT",
+        "title": "Do and Don’t (2/2)",
+        "content": "Common mistakes and how to avoid them.",
+        "dos": [
+          "Follow written Ground Operations Agent SOP instructions carefully.",
+          "Follow written Ground Operations Agent SOP instructions carefully.",
+          "Follow written Ground Operations Agent SOP instructions carefully."
+        ],
+        "donts": [
+          "Ignore a safety hazard because boarding is delayed.",
+          "Give passengers instructions based on unverified information.",
+          "Continue when an unresolved safety or security concern requires escalation."
+        ],
+        "comparison": {
+          "do": [
+            "Follow written Ground Operations Agent SOP instructions carefully.",
+            "Follow written Ground Operations Agent SOP instructions carefully.",
+            "Follow written Ground Operations Agent SOP instructions carefully."
+          ],
+          "dont": [
+            "Ignore a safety hazard because boarding is delayed.",
+            "Give passengers instructions based on unverified information.",
+            "Continue when an unresolved safety or security concern requires escalation."
+          ]
+        }
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Exceptions (1/2)",
+        "title": "When Things Don’t Go to Plan",
+        "ic": "warn",
+        "items": [
+          "Document mismatch → pause the affected passenger's boarding and seek authorised resolution.",
+          "Wrong gate/flight → verify current flight information before directing the passenger.",
+          "Boarding system unavailable → use only the approved contingency process. (Note: Offline fallback procedures are specified…",
+          "Boarding delay → communicate through the designated operational channel and follow revised instructions."
+        ],
+        "content": "Document mismatch → pause the affected passenger's boarding and seek authorised resolution.\nWrong gate/flight → verify current flight information before directing the passenger.\nBoarding system unavailable → use only the approved contingency process. (Note: Offline fallback procedures are specified…\nBoarding delay → communicate through the designated operational channel and follow revised instructions.",
+        "evidenceSource": "SOP exceptions"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Exceptions (2/2)",
+        "title": "When Things Don’t Go to Plan",
+        "ic": "warn",
+        "items": [
+          "Unattended item or suspicious behaviour → maintain appropriate distance and initiate the authorised security response."
+        ],
+        "content": "Unattended item or suspicious behaviour → maintain appropriate distance and initiate the authorised security response.",
+        "evidenceSource": "SOP exceptions"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Escalation (1/3)",
+        "title": "When to Escalate",
+        "ic": "warn",
+        "items": [
+          "Security concern or unauthorised access. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+          "Unattended or suspicious item. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+          "Passenger identity or boarding-document issue that cannot be resolved within your… → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+          "Safety hazard in the gate/boarding area. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED"
+        ],
+        "content": "Security concern or unauthorised access. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED\nUnattended or suspicious item. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED\nPassenger identity or boarding-document issue that cannot be resolved within your… → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED\nSafety hazard in the gate/boarding area. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "evidenceSource": "SOP escalation"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Escalation (2/3)",
+        "title": "When to Escalate",
+        "ic": "warn",
+        "items": [
+          "Medical emergency or passenger requiring urgent assistance. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+          "Equipment/system failure affecting safe boarding. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+          "Conflicting operational instructions. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+          "Any situation where it is unclear whether it is safe or authorised to continue. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED"
+        ],
+        "content": "Medical emergency or passenger requiring urgent assistance. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED\nEquipment/system failure affecting safe boarding. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED\nConflicting operational instructions. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED\nAny situation where it is unclear whether it is safe or authorised to continue. → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "evidenceSource": "SOP escalation"
+      },
+      {
+        "type": "TEACH_STEP",
+        "step": "Escalation (3/3)",
+        "title": "When to Escalate",
+        "ic": "warn",
+        "items": [
+          "Mandatory Escalation Protocol Rule → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED."
+        ],
+        "content": "Mandatory Escalation Protocol Rule → STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED.",
+        "evidenceSource": "SOP escalation"
+      },
+      {
+        "type": "KEY_TAKEAWAYS",
+        "title": "Key Takeaways",
+        "items": [
+          "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+          "Maintain clear passenger movement routes and emergency access.",
+          "Do not allow unauthorised access to restricted or controlled areas.",
+          "Follow approved identity, boarding-document and passenger verification procedures.",
+          "Report unattended or suspicious items immediately through the authorised security process.",
+          "Do not bypass security controls because of time pressure.",
+          "Use only authorised equipment and follow airside safety rules.",
+          "Was every boarding verification completed correctly?",
+          "Were safety and security controls maintained?",
+          "Were exceptions handled through the approved process?",
+          "Were unresolved issues escalated correctly?",
+          "Was final passenger/boarding status accurately reconciled?",
+          "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.",
+          "Escalate: Security concern or unauthorised access.",
+          "Escalate: Unattended or suspicious item.",
+          "Escalate: Passenger identity or boarding-document issue that cannot be resolved within your…",
+          "Escalate: Safety hazard in the gate/boarding area.",
+          "Escalate: Medical emergency or passenger requiring urgent assistance.",
+          "Escalate: Equipment/system failure affecting safe boarding.",
+          "Escalate: Conflicting operational instructions.",
+          "Escalate: Any situation where it is unclear whether it is safe or authorised to continue.",
+          "Escalate: Mandatory Escalation Protocol Rule",
+          "Receive authorised instruction to begin boarding.",
+          "Make clear boarding announcements and provide required instructions.",
+          "Check boarding documents using the approved process.",
+          "Manage the queue and maintain orderly passenger movement.",
+          "Identify passengers requiring assistance and coordinate authorised support.",
+          "Follow the approved process for final passenger reconciliation and boarding closure.",
+          "Passenger boarding status is reconciled according to the approved process.",
+          "Any unresolved passenger, safety or security issue has been escalated.",
+          "Gate and boarding area remain controlled and safe.",
+          "Required operational communication is complete.",
+          "Flight is released/closed only through the authorised process."
+        ],
+        "content": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.\nMaintain clear passenger movement routes and emergency access.\nDo not allow unauthorised access to restricted or controlled areas.\nFollow approved identity, boarding-document and passenger verification procedures.\nReport unattended or suspicious items immediately through the authorised security process.\nDo not bypass security controls because of time pressure.\nUse only authorised equipment and follow airside safety rules.\nWas every boarding verification completed correctly?\nWere safety and security controls maintained?\nWere exceptions handled through the approved process?\nWere unresolved issues escalated correctly?\nWas final passenger/boarding status accurately reconciled?\nDefinition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.\nEscalate: Security concern or unauthorised access.\nEscalate: Unattended or suspicious item.\nEscalate: Passenger identity or boarding-document issue that cannot be resolved within your…\nEscalate: Safety hazard in the gate/boarding area.\nEscalate: Medical emergency or passenger requiring urgent assistance.\nEscalate: Equipment/system failure affecting safe boarding.\nEscalate: Conflicting operational instructions.\nEscalate: Any situation where it is unclear whether it is safe or authorised to continue.\nEscalate: Mandatory Escalation Protocol Rule\nReceive authorised instruction to begin boarding.\nMake clear boarding announcements and provide required instructions.\nCheck boarding documents using the approved process.\nManage the queue and maintain orderly passenger movement.\nIdentify passengers requiring assistance and coordinate authorised support.\nFollow the approved process for final passenger reconciliation and boarding closure.\nPassenger boarding status is reconciled according to the approved process.\nAny unresolved passenger, safety or security issue has been escalated.\nGate and boarding area remain controlled and safe.\nRequired operational communication is complete.\nFlight is released/closed only through the authorised process."
+      },
+      {
+        "type": "COMPLETION",
+        "title": "Great Job!",
+        "content": "You’ve completed the Training deck overview for Aviation Ground Operations.",
+        "next": "Next: Show Me",
+        "nb": "See the steps in action, then practise them with a coach."
+      }
+    ]
+  },
+  "videoPlan": {
+    "clips": [
+      {
+        "clip_index": 1,
+        "scene_id": "scene-1",
+        "title": "Scene 1: setup and intake",
+        "purpose": "Demonstrate Receive authorised instruction to begin boarding.",
+        "step_ref": "Steps S1.sec1",
+        "covered_step_refs": [
+          "S1.sec1"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Receive authorised instruction to begin boarding.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Receive authorised instruction to begin boarding. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Confirm readiness: Receive authorised instruction to begin boarding.",
+        "on_screen_text": "PERFORM RECEIVE AUTHORISED",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is receiving and cross-checking authorised instruction to begin boarding. with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Receive authorised instruction to begin boarding."
+      },
+      {
+        "clip_index": 2,
+        "scene_id": "scene-2",
+        "title": "Scene 2: core execution",
+        "purpose": "Demonstrate Make clear boarding announcements and provide required instructions.",
+        "step_ref": "Steps S1.sec2",
+        "covered_step_refs": [
+          "S1.sec2"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Make clear boarding announcements and provide required instructions.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Make clear boarding announcements and provide required instructions. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Prepare passengers: Make clear boarding announcements and provide required instructions.",
+        "on_screen_text": "PERFORM MAKE CLEAR",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is Make clear boarding announcements and provide required instructions. with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Make clear boarding announcements and provide required instructions."
+      },
+      {
+        "clip_index": 3,
+        "scene_id": "scene-3",
+        "title": "Scene 3: control and decision",
+        "purpose": "Demonstrate Check boarding documents using the approved process.",
+        "step_ref": "Steps S1.sec3",
+        "covered_step_refs": [
+          "S1.sec3"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Check boarding documents using the approved process.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Check boarding documents using the approved process. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Verify: Check boarding documents using the approved process.",
+        "on_screen_text": "CHECK CHECK BOARDING",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is systematically checking and confirming boarding documents using the approved process. with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Check boarding documents using the approved process."
+      },
+      {
+        "clip_index": 4,
+        "scene_id": "scene-4",
+        "title": "Scene 4: core execution",
+        "purpose": "Demonstrate sequential execution of initial action followed by verification",
+        "step_ref": "Steps S1.sec4, S1.sec5",
+        "covered_step_refs": [
+          "S1.sec4",
+          "S1.sec5"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Manage the queue and maintain orderly passenger movement. and Identify passengers requiring assistance and coordinate authorised support.",
+        "control_or_decision": "Critical Control: Maintain clear passenger movement routes and emergency access.",
+        "exception_or_escalation": "Escalation: Medical emergency or passenger requiring urgent assistance. -> STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Manage the queue and maintain orderly passenger movement. and then Identify passengers requiring assistance and coordinate authorised support. with authentic equipment. Learner explicitly observes execution of mandatory control: \"Maintain clear passenger movement routes and emergency access.\". Learner explicitly observes exception management: in response to \"Unattended item or suspicious behaviour\", immediately \"maintain appropriate distance and initiate the authorised security response.\".",
+        "what_the_learner_should_understand": "SOP Requirement: Control flow: Manage the queue and maintain orderly passenger movement.",
+        "on_screen_text": "ANOMALY DETECTED → ESCALATE TO STOP/HOLD → PROTEC",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is Manage the queue and maintain orderly passenger movement. and Identify passengers requiring assistance and coordinate authorised support. while applying critical control (Maintain clear passenger movement routes and emergency access) with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Manage the queue and maintain orderly passenger movement."
+      },
+      {
+        "clip_index": 5,
+        "scene_id": "scene-5",
+        "title": "Scene 5: core execution",
+        "purpose": "Demonstrate sequential execution of initial action followed by verification",
+        "step_ref": "Steps S1.sec6, S1.sec7",
+        "covered_step_refs": [
+          "S1.sec6",
+          "S1.sec7"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Follow the approved process for final passenger reconciliation and boarding closure. and Passenger boarding status is reconciled according to the approved process.",
+        "control_or_decision": "Critical Control: Follow approved identity, boarding-document and passenger verification procedures.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Follow the approved process for final passenger reconciliation and boarding closure. and then Passenger boarding status is reconciled according to the approved process. with authentic equipment. Learner explicitly observes execution of mandatory control: \"Follow approved identity, boarding-document and passenger verification procedures.\".",
+        "what_the_learner_should_understand": "SOP Requirement: Close: Follow the approved process for final passenger reconciliation and boarding closure.",
+        "on_screen_text": "PROCESS FOLLOW THE → THEN PROCESS",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is Follow the approved process for final passenger reconciliation and boarding closure. and Passenger boarding status is reconciled according to the approved process. while applying critical control (Follow approved identity, boarding-document and passenger verification procedures) with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Follow the approved process for final passenger reconciliation and boarding closure."
+      },
+      {
+        "clip_index": 6,
+        "scene_id": "scene-6",
+        "title": "Scene 6: exception and escalation",
+        "purpose": "Demonstrate Any unresolved passenger, safety or security issue has been escalated.",
+        "step_ref": "Steps S1.sec8",
+        "covered_step_refs": [
+          "S1.sec8"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Any unresolved passenger, safety or security issue has been escalated.",
+        "control_or_decision": "Decision Point: In situation \"Passenger document issue\", choose \"Verify SOP guideline before proceeding\"",
+        "exception_or_escalation": "Escalation: Passenger identity or boarding-document issue that cannot be resolved within your authority. -> STOP/HOLD → PROTECT PEOPLE & SECURITY → INFORM AUTHORISED PERSON → RESUME ONLY WHEN CLEARED",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Any unresolved passenger, safety or security issue has been escalated. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Any unresolved passenger, safety or security issue has been escalated.",
+        "on_screen_text": "ANOMALY DETECTED → ESCALATE TO STOP/HOLD → PROTEC",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is steadily executing Any unresolved passenger, safety or security issue has been escalated. while executing procedure (Do not improvise; follow the approved verification/escalation process) with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Any unresolved passenger, safety or security issue has been escalated."
+      },
+      {
+        "clip_index": 7,
+        "scene_id": "scene-7",
+        "title": "Scene 7: core execution",
+        "purpose": "Demonstrate Gate and boarding area remain controlled and safe.",
+        "step_ref": "Steps S1.sec9",
+        "covered_step_refs": [
+          "S1.sec9"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Gate and boarding area remain controlled and safe.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Gate and boarding area remain controlled and safe. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Gate and boarding area remain controlled and safe.",
+        "on_screen_text": "PERFORM GATE AND",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is Gate and boarding area remain controlled and safe. with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Gate and boarding area remain controlled and safe."
+      },
+      {
+        "clip_index": 8,
+        "scene_id": "scene-8",
+        "title": "Scene 8: control and decision",
+        "purpose": "Demonstrate Required operational communication is complete.",
+        "step_ref": "Steps S1.sec10",
+        "covered_step_refs": [
+          "S1.sec10"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Required operational communication is complete.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Required operational communication is complete. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Required operational communication is complete.",
+        "on_screen_text": "PERFORM REQUIRED OPERATIONAL",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is Required operational communication is continuously verifying and logging final results. with steady, continuous hand movements. The setting is a modern professional operational facility with organized workstations, safety signage, and equipment staging bays. clean commercial studio illumination with balanced soft natural daylight. subtle continuous camera tracking shot gliding steadily forward.",
+        "key_action": "Required operational communication is complete."
+      },
+      {
+        "clip_index": 9,
+        "scene_id": "scene-9",
+        "title": "Scene 9: verification and handoff",
+        "purpose": "Demonstrate Flight is released/closed only through the authorised process.",
+        "step_ref": "Steps S1.sec11",
+        "covered_step_refs": [
+          "S1.sec11"
+        ],
+        "critical_action": "Frontline Ground Operations Agent executes Flight is released/closed only through the authorised process.",
+        "what_the_learner_should_see": "Clear physical view of Ground Operations Agent performing Flight is released/closed only through the authorised process. with authentic equipment.",
+        "what_the_learner_should_understand": "SOP Requirement: Flight is released/closed only through the authorised process.",
+        "on_screen_text": "PROCESS FLIGHT IS",
+        "duration_seconds": 8,
+        "estimated_duration_seconds": 8,
+        "veo_prompt": "Photorealistic 720p 16:9 cinematic instructional demonstration. A frontline Ground Operations Agent is steadily executing Flight is released/closed only through the authorised process. with steady, continuous hand movements. The setting is a executive private corporate meeting suite with frosted acoustic glass partitions, polished oak conference table, and organized file trays. diffused natural morning daylight mixed with warm commercial recessed spotlights. slow cinematic right-to-left tracking dolly shot maintaining steady focal depth until the final frame.",
+        "key_action": "Flight is released/closed only through the authorised process."
+      }
+    ]
+  },
+  "simSteps": [
+    {
+      "id": "step_1",
+      "order": 1,
+      "title": "Perform Receive authorised instruction to begin",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 1: Perform Receive authorised instruction to begin",
+        "info": "Confirm readiness: Receive authorised instruction to begin boarding."
+      },
+      "coach_say": "Operational Rule: Receive authorised instruction to begin boarding.",
+      "question": "Turnaround preparations are underway. When are you authorised to open the gate and begin passenger boarding?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Only after receiving authorised instruction to begin boarding."
+        },
+        {
+          "id": "o2",
+          "label": "As soon as passengers form a queue at the gate podium."
+        },
+        {
+          "id": "o3",
+          "label": "At scheduled departure minus 30 minutes without waiting for instruction."
+        }
+      ],
+      "correct": "o1",
+      "why": "SOP Requirement: Confirm readiness: Receive authorised instruction to begin boarding.",
+      "wrong_feedback": {
+        "o2": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 2 · Passenger Boarding in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec1",
+      "hotspots": null
+    },
+    {
+      "id": "step_2",
+      "order": 2,
+      "title": "Perform Make clear boarding announcements",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 2: Perform Make clear boarding announcements",
+        "info": "Prepare passengers: Make clear boarding announcements and provide required instructions."
+      },
+      "coach_say": "Operational Rule: Make clear boarding announcements and provide required instructions.",
+      "question": "Passenger boarding is about to commence. How should you prepare passengers?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Open the gate silently and let passengers determine boarding order."
+        },
+        {
+          "id": "o2",
+          "label": "Make clear boarding announcements and provide required instructions."
+        },
+        {
+          "id": "o3",
+          "label": "Announce an unverified departure gate to disperse passenger congestion."
+        }
+      ],
+      "correct": "o2",
+      "why": "SOP Requirement: Prepare passengers: Make clear boarding announcements and provide required instructions.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 2 · Passenger Boarding in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec2",
+      "hotspots": null
+    },
+    {
+      "id": "step_3",
+      "order": 3,
+      "title": "Check Check boarding documents using",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 3: Check Check boarding documents using",
+        "info": "Verify: Check boarding documents using the approved process."
+      },
+      "coach_say": "Operational Rule: Check boarding documents using the approved process.",
+      "question": "A passenger presents their documents at the gate. What is the mandatory verification procedure?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Wave the passenger through visually to keep the queue moving."
+        },
+        {
+          "id": "o2",
+          "label": "Allow boarding and verify identity later during aircraft turnaround."
+        },
+        {
+          "id": "o3",
+          "label": "Check boarding documents using the approved verification process."
+        }
+      ],
+      "correct": "o3",
+      "why": "SOP Requirement: Verify: Check boarding documents using the approved process.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o2": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 2 · Passenger Boarding in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec3",
+      "hotspots": null
+    },
+    {
+      "id": "step_4",
+      "order": 4,
+      "title": "Perform Manage the queue and maintain",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 4: Perform Manage the queue and maintain",
+        "info": "Control flow: Manage the queue and maintain orderly passenger movement."
+      },
+      "coach_say": "Operational Rule: Manage the queue and maintain orderly passenger movement.",
+      "question": "The boarding queue is swelling into the terminal walkway. How must you control the flow?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Manage the queue actively and maintain clear movement routes and emergency access."
+        },
+        {
+          "id": "o2",
+          "label": "Allow passengers to crowd the doorway so boarding finishes faster."
+        },
+        {
+          "id": "o3",
+          "label": "Direct overflow passengers through restricted airside access routes."
+        }
+      ],
+      "correct": "o1",
+      "why": "SOP Requirement: Control flow: Manage the queue and maintain orderly passenger movement.",
+      "wrong_feedback": {
+        "o2": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 2 · Passenger Boarding in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec4",
+      "hotspots": null
+    },
+    {
+      "id": "step_5",
+      "order": 5,
+      "title": "Perform Identify passengers requiring assistance",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 5: Perform Identify passengers requiring assistance",
+        "info": "Monitor: Identify passengers requiring assistance and coordinate authorised support."
+      },
+      "coach_say": "Operational Rule: Identify passengers requiring assistance and coordinate authorised support.",
+      "question": "A passenger requiring special assistance arrives at the gate. What action should you take?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Instruct them to board unassisted with general passengers to avoid delays."
+        },
+        {
+          "id": "o2",
+          "label": "Identify their assistance needs and coordinate authorised support before proceeding."
+        },
+        {
+          "id": "o3",
+          "label": "Board all other passengers first and leave the passenger unattended."
+        }
+      ],
+      "correct": "o2",
+      "why": "SOP Requirement: Monitor: Identify passengers requiring assistance and coordinate authorised support.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 2 · Passenger Boarding in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec5",
+      "hotspots": null
+    },
+    {
+      "id": "step_6",
+      "order": 6,
+      "title": "Process Follow the approved process",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 6: Process Follow the approved process",
+        "info": "Close: Follow the approved process for final passenger reconciliation and boarding closure."
+      },
+      "coach_say": "Operational Rule: Follow the approved process for final passenger reconciliation and boarding closure.",
+      "question": "All visible passengers have cleared the gate. What is the required process for boarding closure?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Close the gate doors immediately without reconciling the manifest count."
+        },
+        {
+          "id": "o2",
+          "label": "Authorise flight departure before confirming boarding status is reconciled."
+        },
+        {
+          "id": "o3",
+          "label": "Follow the approved process for final passenger reconciliation and boarding closure."
+        }
+      ],
+      "correct": "o3",
+      "why": "SOP Requirement: Close: Follow the approved process for final passenger reconciliation and boarding closure.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o2": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 2 · Passenger Boarding in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec6",
+      "hotspots": null
+    },
+    {
+      "id": "step_7",
+      "order": 7,
+      "title": "Process Passenger boarding status is reconciled",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 7: Process Passenger boarding status is reconciled",
+        "info": "Passenger boarding status is reconciled according to the approved process."
+      },
+      "coach_say": "Operational Rule: Passenger boarding status is reconciled according to the approved process.",
+      "question": "Prior to aircraft release, what must be confirmed regarding passenger boarding status?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Passenger boarding status is reconciled according to the approved process."
+        },
+        {
+          "id": "o2",
+          "label": "Release aircraft without passenger status reconciliation to save turnaround time."
+        },
+        {
+          "id": "o3",
+          "label": "Assume manifest counts match if no gate alarms sounded during boarding."
+        }
+      ],
+      "correct": "o1",
+      "why": "SOP Requirement: Passenger boarding status is reconciled according to the approved process.",
+      "wrong_feedback": {
+        "o2": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 3 · Final Turnaround Check in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec7",
+      "hotspots": null
+    },
+    {
+      "id": "step_8",
+      "order": 8,
+      "title": "Perform Any unresolved passenger",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 8: Perform Any unresolved passenger",
+        "info": "Any unresolved passenger, safety or security issue has been escalated."
+      },
+      "coach_say": "Operational Rule: Any unresolved passenger, safety or security issue has been escalated.",
+      "question": "An unresolved passenger discrepancy or safety concern remains as departure nears. What is required?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Conceal the discrepancy so the flight departs on schedule."
+        },
+        {
+          "id": "o2",
+          "label": "Escalate the issue through the authorised process before releasing the flight."
+        },
+        {
+          "id": "o3",
+          "label": "Leave the issue for the arrival station to investigate."
+        }
+      ],
+      "correct": "o2",
+      "why": "SOP Requirement: Any unresolved passenger, safety or security issue has been escalated.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 3 · Final Turnaround Check in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec8",
+      "hotspots": null
+    },
+    {
+      "id": "step_9",
+      "order": 9,
+      "title": "Perform Gate and boarding area remain",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 9: Perform Gate and boarding area remain",
+        "info": "Gate and boarding area remain controlled and safe."
+      },
+      "coach_say": "Operational Rule: Gate and boarding area remain controlled and safe.",
+      "question": "Following boarding completion, what condition must be maintained at the gate and boarding area?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Leave the jet bridge and gate podium unattended after boarding."
+        },
+        {
+          "id": "o2",
+          "label": "Allow waiting passengers for subsequent flights into the active turnaround area."
+        },
+        {
+          "id": "o3",
+          "label": "Gate and boarding area remain controlled and safe."
+        }
+      ],
+      "correct": "o3",
+      "why": "SOP Requirement: Gate and boarding area remain controlled and safe.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o2": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 3 · Final Turnaround Check in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec9",
+      "hotspots": null
+    },
+    {
+      "id": "step_10",
+      "order": 10,
+      "title": "Perform Required operational communication is complete.",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 10: Perform Required operational communication is complete.",
+        "info": "Required operational communication is complete."
+      },
+      "coach_say": "Operational Rule: Required operational communication is complete.",
+      "question": "Before final aircraft turnaround closure, what communication requirement must be verified?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Confirm required operational communication is complete through designated channels."
+        },
+        {
+          "id": "o2",
+          "label": "Omit formal communication if the flight crew appears busy."
+        },
+        {
+          "id": "o3",
+          "label": "Rely on unverified verbal hearsay rather than designated operational channels."
+        }
+      ],
+      "correct": "o1",
+      "why": "SOP Requirement: Required operational communication is complete.",
+      "wrong_feedback": {
+        "o2": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 3 · Final Turnaround Check in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec10",
+      "hotspots": null
+    },
+    {
+      "id": "step_11",
+      "order": 11,
+      "title": "Process Flight is released/closed only through",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 11: Process Flight is released/closed only through",
+        "info": "Flight is released/closed only through the authorised process."
+      },
+      "coach_say": "Operational Rule: Flight is released/closed only through the authorised process.",
+      "question": "Turnaround support is complete. Under what authority is the flight released?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Release the flight as soon as the turnaround coordinator leaves the podium."
+        },
+        {
+          "id": "o2",
+          "label": "Release or close the flight only through the authorised process."
+        },
+        {
+          "id": "o3",
+          "label": "Release the flight early without completing required operational communication."
+        }
+      ],
+      "correct": "o2",
+      "why": "SOP Requirement: Flight is released/closed only through the authorised process.",
+      "wrong_feedback": {
+        "o1": "Non-compliant Shortcut / Risk",
+        "o3": "Unapproved Workaround / Safety Violation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to Page 3 · Final Turnaround Check in Aviation_Ground_Operations_SOP.pdf",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "normal",
+      "source_ref": "S1.sec11",
+      "hotspots": null
+    },
+    {
+      "id": "step_12",
+      "order": 12,
+      "title": "Critical Control: CRITICAL RULE: A departure deadline",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 12: Critical Control: CRITICAL RULE: A departure deadline",
+        "info": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control."
+      },
+      "coach_say": "Always enforce written compliance rule: CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+      "question": "Under severe departure deadline pressure, a turnaround coordinator instructs you to skip document verification. What is the mandatory rule?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Refuse the bypass: A departure deadline never overrides an aviation safety or security control."
+        },
+        {
+          "id": "o2",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o3",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        }
+      ],
+      "correct": "o1",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o2": "Severe compliance violation",
+        "o3": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl1",
+      "hotspots": null
+    },
+    {
+      "id": "step_13",
+      "order": 13,
+      "title": "Critical Control: Maintain clear passenger movement r",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 13: Critical Control: Maintain clear passenger movement r",
+        "info": "Maintain clear passenger movement routes and emergency access."
+      },
+      "coach_say": "Always enforce written compliance rule: Maintain clear passenger movement routes and emergency access.",
+      "question": "Compliance Assessment: What is the mandatory protocol regarding \"Maintain clear passenger movement routes and emergency access.\"?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o2",
+          "label": "Strictly adhere: Maintain clear passenger movement routes and emergency access."
+        },
+        {
+          "id": "o3",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        }
+      ],
+      "correct": "o2",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o1": "Severe compliance violation",
+        "o3": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl2",
+      "hotspots": null
+    },
+    {
+      "id": "step_14",
+      "order": 14,
+      "title": "Critical Control: Do not allow unauthorised access to",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 14: Critical Control: Do not allow unauthorised access to",
+        "info": "Do not allow unauthorised access to restricted or controlled areas."
+      },
+      "coach_say": "Always enforce written compliance rule: Do not allow unauthorised access to restricted or controlled areas.",
+      "question": "Compliance Assessment: What is the mandatory protocol regarding \"Do not allow unauthorised access to restricted or controlled areas.\"?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o2",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        },
+        {
+          "id": "o3",
+          "label": "Strictly adhere: Do not allow unauthorised access to restricted or controlled areas."
+        }
+      ],
+      "correct": "o3",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o1": "Severe compliance violation",
+        "o2": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl3",
+      "hotspots": null
+    },
+    {
+      "id": "step_15",
+      "order": 15,
+      "title": "Critical Control: Follow approved identity, boarding-",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 15: Critical Control: Follow approved identity, boarding-",
+        "info": "Follow approved identity, boarding-document and passenger verification procedures."
+      },
+      "coach_say": "Always enforce written compliance rule: Follow approved identity, boarding-document and passenger verification procedures.",
+      "question": "Compliance Assessment: What is the mandatory protocol regarding \"Follow approved identity, boarding-document and passenger verification procedures.\"?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Strictly adhere: Follow approved identity, boarding-document and passenger verification procedures."
+        },
+        {
+          "id": "o2",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o3",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        }
+      ],
+      "correct": "o1",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o2": "Severe compliance violation",
+        "o3": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl4",
+      "hotspots": null
+    },
+    {
+      "id": "step_16",
+      "order": 16,
+      "title": "Critical Control: Report unattended or suspicious ite",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 16: Critical Control: Report unattended or suspicious ite",
+        "info": "Report unattended or suspicious items immediately through the authorised security process."
+      },
+      "coach_say": "Always enforce written compliance rule: Report unattended or suspicious items immediately through the authorised security process.",
+      "question": "Compliance Assessment: What is the mandatory protocol regarding \"Report unattended or suspicious items immediately through the authorised security process.\"?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o2",
+          "label": "Strictly adhere: Report unattended or suspicious items immediately through the authorised security process."
+        },
+        {
+          "id": "o3",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        }
+      ],
+      "correct": "o2",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o1": "Severe compliance violation",
+        "o3": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl5",
+      "hotspots": null
+    },
+    {
+      "id": "step_17",
+      "order": 17,
+      "title": "Critical Control: Do not bypass security controls bec",
+      "icon": "📋",
+      "purpose": "skill",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 17: Critical Control: Do not bypass security controls bec",
+        "info": "Do not bypass security controls because of time pressure."
+      },
+      "coach_say": "Always enforce written compliance rule: Do not bypass security controls because of time pressure.",
+      "question": "Compliance Assessment: What is the mandatory protocol regarding \"Do not bypass security controls because of time pressure.\"?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o2",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        },
+        {
+          "id": "o3",
+          "label": "Strictly adhere: Do not bypass security controls because of time pressure."
+        }
+      ],
+      "correct": "o3",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o1": "Severe compliance violation",
+        "o2": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl6",
+      "hotspots": null
+    },
+    {
+      "id": "step_18",
+      "order": 18,
+      "title": "Critical Control: Use only authorised equipment and f",
+      "icon": "📋",
+      "purpose": "understanding",
+      "component": "choice_list",
+      "screen": {
+        "header": "Step 18: Critical Control: Use only authorised equipment and f",
+        "info": "Use only authorised equipment and follow airside safety rules."
+      },
+      "coach_say": "Always enforce written compliance rule: Use only authorised equipment and follow airside safety rules.",
+      "question": "Compliance Assessment: What is the mandatory protocol regarding \"Use only authorised equipment and follow airside safety rules.\"?",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Strictly adhere: Use only authorised equipment and follow airside safety rules."
+        },
+        {
+          "id": "o2",
+          "label": "Agree to bypass verification to prevent departure delay penalties."
+        },
+        {
+          "id": "o3",
+          "label": "Perform checks on only selected passengers to save turnaround time."
+        }
+      ],
+      "correct": "o1",
+      "why": "Critical requirement for Ground Operations Agent",
+      "wrong_feedback": {
+        "o2": "Severe compliance violation",
+        "o3": "Unapproved deviation"
+      },
+      "wrong_default": "Check written SOP text.",
+      "hint": "Refer to SOP compliance controls for Aviation_Ground_Operations_SOP",
+      "reshow_card": null,
+      "scan_required": false,
+      "risk": "compliance",
+      "source_ref": "S1.ctrl7",
+      "hotspots": null
+    }
+  ],
+  "decisions": {
+    "allPassed": {
+      "decision": "is_ready",
+      "decisionTitle": "READY FOR THE FLOOR",
+      "decisionBadgeColor": "emerald",
+      "summary": "All operational requirements and critical controls have been demonstrated without hints.",
+      "demonstratedCount": 47,
+      "totalCount": 47,
+      "percentage": 100,
+      "criticalControlsPassed": true,
+      "unresolvedAmbiguitiesCount": 0,
+      "weakRequirements": [],
+      "remediationPlan": null,
+      "evidenceMatrix": {
+        "prerequisites": {
+          "total": 5,
+          "demonstrated": 0
+        },
+        "tools": {
+          "total": 1,
+          "demonstrated": 0
+        },
+        "steps": {
+          "total": 11,
+          "demonstrated": 11
+        },
+        "controls": {
+          "total": 18,
+          "demonstrated": 18,
+          "criticalCount": 9,
+          "criticalPassed": 9
+        },
+        "decisions": {
+          "total": 4,
+          "demonstrated": 4
+        },
+        "exceptions": {
+          "total": 14,
+          "demonstrated": 14
+        }
+      }
+    },
+    "failedCritical": {
+      "decision": "needs_targeted_practice",
+      "decisionTitle": "TARGETED REMEDIATION REQUIRED",
+      "decisionBadgeColor": "amber",
+      "summary": "Critical safety or compliance control was missed. Targeted practice required on 1 specific item(s).",
+      "demonstratedCount": 46,
+      "totalCount": 47,
+      "percentage": 98,
+      "criticalControlsPassed": false,
+      "unresolvedAmbiguitiesCount": 0,
+      "weakRequirements": [
+        {
+          "id": "ctrl-crit-1",
+          "type": "control",
+          "title": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+          "reason": "Critical compliance control missed or violated",
+          "sourceRef": "S1.ctrl1"
+        }
+      ],
+      "remediationPlan": {
+        "modeToTarget": "makeTheDecision",
+        "targetItemIds": [
+          "ctrl-crit-1"
+        ],
+        "description": "Practise the 1 specific missed step(s) in Guide Me mode without re-doing the full lesson.",
+        "buttonText": "Practise 1 Weak Item Only →"
+      },
+      "evidenceMatrix": {
+        "prerequisites": {
+          "total": 5,
+          "demonstrated": 0
+        },
+        "tools": {
+          "total": 1,
+          "demonstrated": 0
+        },
+        "steps": {
+          "total": 11,
+          "demonstrated": 11
+        },
+        "controls": {
+          "total": 18,
+          "demonstrated": 17,
+          "criticalCount": 9,
+          "criticalPassed": 8
+        },
+        "decisions": {
+          "total": 4,
+          "demonstrated": 4
+        },
+        "exceptions": {
+          "total": 14,
+          "demonstrated": 14
+        }
+      }
+    },
+    "failedNonCritical": {
+      "decision": "needs_targeted_practice",
+      "decisionTitle": "TARGETED REMEDIATION REQUIRED",
+      "decisionBadgeColor": "amber",
+      "summary": "Demonstrated 98% competence. 1 specific requirement(s) need targeted practice.",
+      "demonstratedCount": 46,
+      "totalCount": 47,
+      "percentage": 98,
+      "criticalControlsPassed": true,
+      "unresolvedAmbiguitiesCount": 0,
+      "weakRequirements": [
+        {
+          "id": "step-11",
+          "type": "step",
+          "title": "Flight is released/closed only through the authori",
+          "reason": "SOP Requirement: Flight is released/closed only through the authorised process.",
+          "sourceRef": "S1.sec11"
+        }
+      ],
+      "remediationPlan": {
+        "modeToTarget": "makeTheDecision",
+        "targetItemIds": [
+          "step-11"
+        ],
+        "description": "Practise the 1 specific missed step(s) in Guide Me mode without re-doing the full lesson.",
+        "buttonText": "Practise 1 Weak Item Only →"
+      },
+      "evidenceMatrix": {
+        "prerequisites": {
+          "total": 5,
+          "demonstrated": 0
+        },
+        "tools": {
+          "total": 1,
+          "demonstrated": 0
+        },
+        "steps": {
+          "total": 11,
+          "demonstrated": 10
+        },
+        "controls": {
+          "total": 18,
+          "demonstrated": 18,
+          "criticalCount": 9,
+          "criticalPassed": 9
+        },
+        "decisions": {
+          "total": 4,
+          "demonstrated": 4
+        },
+        "exceptions": {
+          "total": 14,
+          "demonstrated": 14
+        }
+      }
+    }
+  },
+  "audit": {
+    "isFullyCovered": true,
+    "totalRequirements": 59,
+    "coveredRequirements": 59,
+    "coveragePercentage": 100,
+    "records": [
+      {
+        "itemId": "prereq-1",
+        "itemType": "prerequisite",
+        "description": "Check assigned flight, gate, scheduled departure time and current operational status.",
+        "sourceRef": "S1.pre1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prereq-2",
+        "itemType": "prerequisite",
+        "description": "Confirm the required communication channel and assigned supervisor/turnaround coordinator.",
+        "sourceRef": "S1.pre2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prereq-3",
+        "itemType": "prerequisite",
+        "description": "Check that passenger, gate and boarding information is available.",
+        "sourceRef": "S1.pre3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prereq-4",
+        "itemType": "prerequisite",
+        "description": "Confirm the gate/boarding area is ready and access routes are clear.",
+        "sourceRef": "S1.pre4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prereq-5",
+        "itemType": "prerequisite",
+        "description": "Ensure required identification, communication equipment and authorised equipment are available and serviceable.",
+        "sourceRef": "S1.pre5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "tool-1",
+        "itemType": "tool",
+        "description": "COMMUNICATION EQUIPMENT",
+        "sourceRef": "S1.tool1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "step-1",
+        "itemType": "step",
+        "description": "Receive authorised instruction to begin boarding.",
+        "sourceRef": "S1.sec1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-2",
+        "itemType": "step",
+        "description": "Make clear boarding announcements and provide required instructions.",
+        "sourceRef": "S1.sec2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-3",
+        "itemType": "step",
+        "description": "Check boarding documents using the approved process.",
+        "sourceRef": "S1.sec3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-4",
+        "itemType": "step",
+        "description": "Manage the queue and maintain orderly passenger movement.",
+        "sourceRef": "S1.sec4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-5",
+        "itemType": "step",
+        "description": "Identify passengers requiring assistance and coordinate authorised support.",
+        "sourceRef": "S1.sec5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-6",
+        "itemType": "step",
+        "description": "Follow the approved process for final passenger reconciliation and boarding closure.",
+        "sourceRef": "S1.sec6",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-7",
+        "itemType": "step",
+        "description": "Passenger boarding status is reconciled according to the approved process.",
+        "sourceRef": "S1.sec7",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-8",
+        "itemType": "step",
+        "description": "Any unresolved passenger, safety or security issue has been escalated.",
+        "sourceRef": "S1.sec8",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-9",
+        "itemType": "step",
+        "description": "Gate and boarding area remain controlled and safe.",
+        "sourceRef": "S1.sec9",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-10",
+        "itemType": "step",
+        "description": "Required operational communication is complete.",
+        "sourceRef": "S1.sec10",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "step-11",
+        "itemType": "step",
+        "description": "Flight is released/closed only through the authorised process.",
+        "sourceRef": "S1.sec11",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-1",
+        "itemType": "control",
+        "description": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "sourceRef": "S1.ctrl1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-2",
+        "itemType": "control",
+        "description": "Maintain clear passenger movement routes and emergency access.",
+        "sourceRef": "S1.ctrl2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-3",
+        "itemType": "control",
+        "description": "Do not allow unauthorised access to restricted or controlled areas.",
+        "sourceRef": "S1.ctrl3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-4",
+        "itemType": "control",
+        "description": "Follow approved identity, boarding-document and passenger verification procedures.",
+        "sourceRef": "S1.ctrl4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-5",
+        "itemType": "control",
+        "description": "Report unattended or suspicious items immediately through the authorised security process.",
+        "sourceRef": "S1.ctrl5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-6",
+        "itemType": "control",
+        "description": "Do not bypass security controls because of time pressure.",
+        "sourceRef": "S1.ctrl6",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-crit-7",
+        "itemType": "control",
+        "description": "Use only authorised equipment and follow airside safety rules.",
+        "sourceRef": "S1.ctrl7",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-safe-1",
+        "itemType": "control",
+        "description": "CRITICAL RULE: A departure deadline never overrides an aviation safety or security control.",
+        "sourceRef": "S1.safe1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-safe-2",
+        "itemType": "control",
+        "description": "Maintain clear passenger movement routes and emergency access.",
+        "sourceRef": "S1.safe2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-safe-3",
+        "itemType": "control",
+        "description": "Report unattended or suspicious items immediately through the authorised security process.",
+        "sourceRef": "S1.safe3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-safe-4",
+        "itemType": "control",
+        "description": "Do not bypass security controls because of time pressure.",
+        "sourceRef": "S1.safe4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-safe-5",
+        "itemType": "control",
+        "description": "Use only authorised equipment and follow airside safety rules.",
+        "sourceRef": "S1.safe5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-qual-1",
+        "itemType": "control",
+        "description": "Was every boarding verification completed correctly?",
+        "sourceRef": "S1.qual1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-qual-2",
+        "itemType": "control",
+        "description": "Were safety and security controls maintained?",
+        "sourceRef": "S1.qual2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-qual-3",
+        "itemType": "control",
+        "description": "Were exceptions handled through the approved process?",
+        "sourceRef": "S1.qual3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-qual-4",
+        "itemType": "control",
+        "description": "Were unresolved issues escalated correctly?",
+        "sourceRef": "S1.qual4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-qual-5",
+        "itemType": "control",
+        "description": "Was final passenger/boarding status accurately reconciled?",
+        "sourceRef": "S1.qual5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "ctrl-qual-6",
+        "itemType": "control",
+        "description": "Definition of Good Performance: Safe + secure + accurate + orderly + compliant + timely.",
+        "sourceRef": "S1.qual6",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "dec-1",
+        "itemType": "decision",
+        "description": "Passenger document issue",
+        "sourceRef": "S1.dec1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "dec-2",
+        "itemType": "decision",
+        "description": "Special assistance",
+        "sourceRef": "S1.dec2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "dec-3",
+        "itemType": "decision",
+        "description": "Gate or flight information changes",
+        "sourceRef": "S1.dec3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "dec-4",
+        "itemType": "decision",
+        "description": "Security concern",
+        "sourceRef": "S1.dec4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "exc-1",
+        "itemType": "exception_escalation",
+        "description": "Document mismatch",
+        "sourceRef": "S1.exp1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "exc-2",
+        "itemType": "exception_escalation",
+        "description": "Wrong gate/flight",
+        "sourceRef": "S1.exp2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "exc-3",
+        "itemType": "exception_escalation",
+        "description": "Boarding system unavailable",
+        "sourceRef": "S1.exp3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "exc-4",
+        "itemType": "exception_escalation",
+        "description": "Boarding delay",
+        "sourceRef": "S1.exp4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "exc-5",
+        "itemType": "exception_escalation",
+        "description": "Unattended item or suspicious behaviour",
+        "sourceRef": "S1.exp5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-1",
+        "itemType": "exception_escalation",
+        "description": "Security concern or unauthorised access.",
+        "sourceRef": "S1.esc1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-2",
+        "itemType": "exception_escalation",
+        "description": "Unattended or suspicious item.",
+        "sourceRef": "S1.esc2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-3",
+        "itemType": "exception_escalation",
+        "description": "Passenger identity or boarding-document issue that cannot be resolved within your authority.",
+        "sourceRef": "S1.esc3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-4",
+        "itemType": "exception_escalation",
+        "description": "Safety hazard in the gate/boarding area.",
+        "sourceRef": "S1.esc4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-5",
+        "itemType": "exception_escalation",
+        "description": "Medical emergency or passenger requiring urgent assistance.",
+        "sourceRef": "S1.esc5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-6",
+        "itemType": "exception_escalation",
+        "description": "Equipment/system failure affecting safe boarding.",
+        "sourceRef": "S1.esc6",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-7",
+        "itemType": "exception_escalation",
+        "description": "Conflicting operational instructions.",
+        "sourceRef": "S1.esc7",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-8",
+        "itemType": "exception_escalation",
+        "description": "Any situation where it is unclear whether it is safe or authorised to continue.",
+        "sourceRef": "S1.esc8",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "escala-9",
+        "itemType": "exception_escalation",
+        "description": "Mandatory Escalation Protocol Rule",
+        "sourceRef": "S1.esc9",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": true,
+          "makeTheDecision": true,
+          "proveCapability": true
+        }
+      },
+      {
+        "itemId": "prohib-1",
+        "itemType": "prohibited_action",
+        "description": "Bypass identity, boarding or security controls to save time.",
+        "sourceRef": "S1.err1",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prohib-2",
+        "itemType": "prohibited_action",
+        "description": "Allow unauthorised access to restricted areas.",
+        "sourceRef": "S1.err2",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prohib-3",
+        "itemType": "prohibited_action",
+        "description": "Handle or investigate a suspicious item beyond your authorised procedure.",
+        "sourceRef": "S1.err3",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prohib-4",
+        "itemType": "prohibited_action",
+        "description": "Ignore a safety hazard because boarding is delayed.",
+        "sourceRef": "S1.err4",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prohib-5",
+        "itemType": "prohibited_action",
+        "description": "Give passengers instructions based on unverified information.",
+        "sourceRef": "S1.err5",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      },
+      {
+        "itemId": "prohib-6",
+        "itemType": "prohibited_action",
+        "description": "Continue when an unresolved safety or security concern requires escalation.",
+        "sourceRef": "S1.err6",
+        "dispositions": {},
+        "experiences": {
+          "learnTheFlow": true,
+          "seeTheAction": false,
+          "makeTheDecision": false,
+          "proveCapability": false
+        }
+      }
+    ],
+    "unresolvedItems": []
+  }
+}
